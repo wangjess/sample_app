@@ -12,6 +12,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
+  test "should not allow people to access /users through url" do 
+  end
+
   test "should get new" do
     get signup_path
     assert_response :success

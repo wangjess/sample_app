@@ -38,6 +38,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", help_path, count: 0
     assert_select "a[href=?]", about_path, count: 1
     assert_select "a[href=?]", contact_path, count: 1
-    assert_select "a[href=?]", "/users", count: 1
+    assert_select "a[href=?]", users_path, count: 1
   end
 end
