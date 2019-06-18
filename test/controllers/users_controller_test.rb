@@ -5,14 +5,26 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael)
     @other_user = users(:archer)
+    @not_admin = users(:fake_grill)
   end
 
   test "should redirect index when not logged in" do
     get users_path
-    assert_redirected_to login_url
+    assert_redirected_to root_path
   end
 
-  test "should not allow people to access /users through url" do 
+  test "should not allow non-admins to access /users through url" do 
+    log_in_as(@not_admin)
+    assert is_logged_in?
+    get users_path
+    follow_redirect!
+    assert_template '/'
+  end
+
+  test "should allow admins to access /users through url" do
+    log_in_as(@user)
+    get users_path
+    assert_response :success
   end
 
   test "should get new" do

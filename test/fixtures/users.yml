@@ -19,6 +19,12 @@ malory:
   email: boss@example.gov
   password_digest: <%= User.digest('password') %>
 
+fake_grill:
+  name: Fake Grill
+  email: scammer@example.gov
+  password_digest: <%= User.digest('password') %>
+  admin: false
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name:  <%= "User #{n}" %>

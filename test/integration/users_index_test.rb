@@ -15,8 +15,4 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
       assert_select 'a[href=?]', user_path(user), text: user.name
     end
   end
-
-  test "only admins can index users" do
-    assert_select false
-  end
 end
