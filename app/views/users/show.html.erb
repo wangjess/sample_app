@@ -8,13 +8,12 @@
         <br>
         <%= @user.email %>
         <br>
-        <%= "Wistia Project ID" %>
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
           <%= form_for(@user) do |f| %>
               <%= render 'shared/error_messages' %>
 
-              <%= f.label :wistia_project %>
+              <%= f.label :wistia_project_ID %>
               <%= f.text_field :wistia_project, class: 'form-control' %>
 
               <%= f.submit "Update user", class: "btn btn-primary" %>
