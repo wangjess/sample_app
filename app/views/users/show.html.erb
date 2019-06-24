@@ -8,7 +8,8 @@
         <br>
         <%= @user.email %>
         <br>
-        <%= f.text_field :wistia_project %>
+        <%= f.label :wistia_project, "Wistia Project ID" %>
+        <%= f.text_field :wistia_project, class: 'form-control' %>
       </h1>
     </section>
   </aside>
