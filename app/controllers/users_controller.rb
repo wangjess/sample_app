@@ -53,6 +53,12 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  # Sets wistia_project_ID.
+  def set_wistia_project_ID
+    @user = User.find(params[:id])
+    @user.set_project_id
+  end
+
   private
 
   def user_params
