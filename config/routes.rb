@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users do
-    user do
+    member do
       put 'set_wistia_project_ID'
     end
   end
