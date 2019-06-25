@@ -9,9 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if not current_user?(@user) and current_user.admin?
-      flash[:warning] = "You do not have access."
-      redirect_to root_url
+    if not current_user.admin?
+      if not current_user?(@user)
+        flash[:warning] = "You do not have access."
+        redirect_to root_url
     end
   end
 
