@@ -15,8 +15,8 @@
 
               <%= f.label :wistia_project_ID %>
               <%= f.text_field :wistia_project_ID, class: 'form-control' %>
-
-              <%= button_to "Save", users_url, :method => :get, :form_class => "form-control" %>
+              
+              <%= button_to "Save", :action => "set_wistia_project_ID", :method => :put, :form_class => "form-control" %>
           </div>
         </div>
       </h1>
