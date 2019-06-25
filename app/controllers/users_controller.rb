@@ -9,8 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.id == params[:id] and @user.activated
-    elsif not @user.activated and not @user.admin
+    if not @user.activated and not @user.admin
       flash[:warning] = "You do not have access here.."
       redirect_to root_url and return
     else
