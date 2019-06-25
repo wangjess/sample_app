@@ -69,8 +69,9 @@ class User < ApplicationRecord
   private
 
   # Sets the wistia_project_ID.
-  def set_project_id
-    self.wistia_project_ID
+  def set_project_id(val)
+    self.wistia_project_ID = val # self is necessary here
+    save # or self.save, but the self is unnecessary here
   end
 
   # Converts email to all lower-case.
