@@ -9,7 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    redirect_to root_url and return unless @user.activated and @user.admin
+    unless @user.activated and @user.admin
+      flash[:danger] = "Sorry! You do not have access to that page."
+      redirect_to root_url and return 
   end
 
   def new
