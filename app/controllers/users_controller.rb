@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if not current_user.admin?
       if not current_user?(@user)
-        flash[:warning] = "You do not have access."
         redirect_to root_url
+        flash[:warning] = "You do not have access."
       end
     end
   end
