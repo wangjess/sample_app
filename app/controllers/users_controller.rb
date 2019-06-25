@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       if not current_user?(@user)
         flash[:warning] = "You do not have access."
         redirect_to root_url
+      end
     end
   end
 
