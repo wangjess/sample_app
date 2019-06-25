@@ -7,16 +7,24 @@
         <%= @user.name %>
         <br>
         <%= @user.email %>
+        <% if @errors  %>
+          <p>THE FORM COULD NOT BE SAVED </p>
+          <ul id='errors'>
+          <% @errors.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+          </ul>
+        <% end %>
         <br>
-            <div class="col-md-6 col-md-offset-3">
-              <%= form_for(@user) do |f| %>
+          <div class="col-md-6 col-md-offset-3">
+            <%= form_for(@user) do |f| %>
 
-                <%= f.label :wistia_project_ID %>
-                <%= f.text_field :wistia_project_ID, class: 'form-control' %>
-                
-                <%= button_to "Save", :action => "set_wistia_project_ID", :method => :put, :form_class => "form-control" %>
-              <% end %>
-            </div>
+              <%= f.label :wistia_project_ID %>
+              <%= f.text_field :wistia_project_ID, class: 'form-control' %>
+              
+              <%= button_to "Save", :action => "set_wistia_project_ID", :method => :put, :form_class => "form-control" %>
+            <% end %>
+          </div>
       </h1>
     </section>
   </aside>

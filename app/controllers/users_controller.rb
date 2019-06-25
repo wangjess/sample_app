@@ -57,6 +57,10 @@ class UsersController < ApplicationController
   def set_wistia_project_ID
     @user = User.find(params[:id])
     @user.set_project_id
+    unless @user.valid?
+      @errors = @user.errors.full_messages
+      render :show
+    end
   end
 
   private
