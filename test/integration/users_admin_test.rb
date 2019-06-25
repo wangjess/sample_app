@@ -13,4 +13,18 @@ class UsersAdminTest < ActionDispatch::IntegrationTest
   test "not an admin" do
     log_in_as(@not_admin)
   end
+
+  test "admins can view and edit other people" do
+    log_in_as(@admin)
+    get users_path(@not_admin)
+    assert_template 'users/show'
+  end
+
+  test "non-admins can't view or edit other people" do
+    log_in_as(@not_admin)
+    get users_path(@not_admin)
+    assert_template '/'
+    get users_path
+    assert_template '/'
+  end
 end
