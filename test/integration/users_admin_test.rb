@@ -46,13 +46,9 @@ class UsersAdminTest < ActionDispatch::IntegrationTest
     # TODO assert she can't see form
   end
 
-  test "admins sucessfully updates project ids" do
+  test "admins sucessfully updates project id" do
     log_in_as(@admin)
     get users_path(@scammer)
-  end
-
-  test "non-admins unable to update project ids" do
-    log_in_as(@not_admin)
-    get users_path(@scammer)
+    # TODO assert that i can update scammer's project
   end
 end
