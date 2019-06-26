@@ -32,4 +32,13 @@ class UsersAdminTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template '/'
   end
+
+  test "admins can see the wistia project box" do
+    log_in_as(@admin)
+    get users_path(@not_admin)
+    assert_
+  end
+
+  test "non-admins can't see the wistia project box" do
+  end
 end
