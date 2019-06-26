@@ -4,6 +4,7 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
+    <%= csrf_meta_tags %>
   </head>
   <body>
     <%= render 'layouts/header' %>
