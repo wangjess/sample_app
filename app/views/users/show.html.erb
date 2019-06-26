@@ -16,18 +16,20 @@
           </ul>
         <% end %>
         <br>
-        <% if is_admin? and !@user.is_admin? %>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <%= form_for(@user) do |f| %>
+        <% if is_admin? %>
+          <% if !@user.is_admin? %>
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3">
+                <%= form_for(@user) do |f| %>
 
-                <%= f.label :wistia_project_id %>
-                <%= f.text_field :wistia_project_id, class: 'form-control' %>
-                
-                <%= f.submit "Save", :action => "set_wistia_project_ID", :method => :put, :form_class => "form-control" %>
-              <% end %>
-            </div>
-          </div>
+                  <%= f.label :wistia_project_id %>
+                  <%= f.text_field :wistia_project_id, class: 'form-control' %>
+                  
+                  <%= f.submit "Save", :action => "set_wistia_project_ID", :method => :put, :form_class => "form-control" %>
+                <% end %>
+              </div>
+            </div>        
+          <% end %>
         <% end %>
       </h1>
     </section>
