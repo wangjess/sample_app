@@ -57,6 +57,7 @@ class UsersController < ApplicationController
   def set_wistia_project_ID
     @user = User.find(params[:id])
     @user.set_project_id!(params[:wistia_project_id])
+    redirect_to user_path(@user)
     unless @user.valid?
       @errors = @user.errors.full_messages
       render :show
