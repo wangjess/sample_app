@@ -37,9 +37,6 @@ class UsersAdminTest < ActionDispatch::IntegrationTest
     log_in_as(@admin)
     get users_path(@not_admin)
     assert_response :success
-      post_via_redirect "/signup",
-                        :wistia_project_id => '**?_NEW_SCAMMER-PROJECT_!'
-    end
     # TODO assert she can see form
   end
 
@@ -49,13 +46,12 @@ class UsersAdminTest < ActionDispatch::IntegrationTest
     # TODO assert she can't see form
   end
 
-  test "admins can update project ids" do
+  test "admins sucessfully updates project ids" do
     log_in_as(@admin)
     get users_path(@scammer)
-
   end
 
-  test "non-admins can't update project ids" do
+  test "non-admins unable to update project ids" do
     log_in_as(@not_admin)
     get users_path(@scammer)
   end
