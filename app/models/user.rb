@@ -65,14 +65,7 @@ class User < ApplicationRecord
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
-
-  # Sets the wistia_project_ID.
-  def set_project_id!(val)
-    self.wistia_project_id = val # self is necessary here
-    byebug
-    save # or self.save, but the self is unnecessary here
-  end
-
+  
   private
 
   # Converts email to all lower-case.
