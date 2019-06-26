@@ -53,18 +53,6 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
-  # Sets wistia_project_ID.
-  def set_wistia_project_ID
-    @user = User.find(params[:id])
-    @user.set_project_id!(params[:wistia_project_id])
-    flash[:success] = "Project ID updated"
-    redirect_to user_path(@user)
-    unless @user.valid?
-      @errors = @user.errors.full_messages
-      render :show
-    end
-  end
-
   private
 
   def user_params
