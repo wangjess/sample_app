@@ -66,13 +66,13 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-  private
-
   # Sets the wistia_project_ID.
   def set_project_id!(val)
     self.wistia_project_ID = val # self is necessary here
     save # or self.save, but the self is unnecessary here
   end
+
+  private
 
   # Converts email to all lower-case.
   def downcase_email
