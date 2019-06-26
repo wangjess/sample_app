@@ -33,20 +33,24 @@ class UsersAdminTest < ActionDispatch::IntegrationTest
     assert_template '/'
   end
 
-  test "admins can see the wistia project box" do
+  test "admins can see the wistia form" do
     log_in_as(@admin)
+    get users_path
+    assert_template 'users/index'
     get users_path(@not_admin)
     assert_response :success
-    # TODO assert she can see form
+    assert_select "form", true
   end
 
-  test "non-admins can't see the wistia project box" do
+  test "non-admins can't see the wistia form" do
     log_in_as(@not_admin)
-    get users_path(@scammer)
-    # TODO assert she can't see form
+    get users_path(@not_admin)
+    follow_redirect!
+    assert_response :success
+    assert_select "form", false, "This page must contain no forms"
   end
 
-  test "admins sucessfully updates project id" do
+  test "admins successfully updates wistia form" do
     log_in_as(@admin)
     get users_path(@scammer)
     # TODO assert that i can update scammer's project
