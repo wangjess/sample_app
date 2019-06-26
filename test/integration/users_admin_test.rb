@@ -36,9 +36,10 @@ class UsersAdminTest < ActionDispatch::IntegrationTest
   test "admins can see the wistia project box" do
     log_in_as(@admin)
     get users_path(@not_admin)
-    assert_
+    # TODO
   end
 
   test "non-admins can't see the wistia project box" do
+    # TODO
   end
 end
