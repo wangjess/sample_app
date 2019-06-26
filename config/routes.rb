@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   resources :users do
     member do
-      put 'set_wistia_project_ID'
+      patch 'set_wistia_project_ID'
     end
   end
   resources :account_activations, only: [:edit]
