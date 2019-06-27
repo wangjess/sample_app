@@ -7,5 +7,13 @@ class StaticPagesController < ApplicationController
 
   def about
   end
-  
+
+  def videos
+  end
+
+  def statistics
+  end
+
+  def progress
+  end
 end
