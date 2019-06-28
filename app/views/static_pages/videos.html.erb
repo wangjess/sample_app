@@ -1,10 +1,7 @@
 <% provide(:title, "Your Videos") %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <%= @videos.each do |video| %>
-        <iframe src="<%= JSON.parse(video.to_s)["url"] %>">
-      <% end %>
-    </section>
-  </aside>
+<div class="col-md-4">
+    <%= @videos.each do |video| %>
+      <% puts @videos.inspect %>
+      <iframe src="<%= JSON.parse(video) %>" name="wistia_embed">
+    <% end %>
 </div>
