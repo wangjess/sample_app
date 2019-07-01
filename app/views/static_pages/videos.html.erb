@@ -1,6 +1,6 @@
 <% provide(:title, "Your Videos") %>
-<div class="col-md-4">
+<div class="col-md-4 videos">
     <% @video_iframe_urls.each do |video_iframe_url| %>
-      <iframe src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
+      <iframe class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
     <% end %>
 </div>
