@@ -15,5 +15,4 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
-//= require 'net/http'
+//= require_tree

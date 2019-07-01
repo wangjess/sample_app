@@ -13,11 +13,17 @@ class StaticPagesController < ApplicationController
     @current_user = current_user
     project_id = @current_user.wistia_project_id
     auth_token = "b85eb878c603fbe6f87bb758ca5cffd93dbdd14d26fabe3174706116bd3912a3"
-    uri = URI("https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{auth_token}")
-    res = Net::HTTP.get_response(uri)
+    request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{auth_token}"
 
-    # Status
-    puts res.code       # => '200'
+    @response = HTTP.get(request)
+
+    # handle errors (4xx & 5xx)
+    if @response.status.client_error? || @response.status.server_error?
+      render plain: "Sorry, error"
+      return
+    end
+
+    @response = HTTP.get(request).body # didnt get body to handle errors
 
     # get embed code for each video using the hashed_id, put in list
     @video_iframe_urls = JSON.parse(@response)['medias'].map do |p|
