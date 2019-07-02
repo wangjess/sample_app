@@ -19,7 +19,8 @@ class StaticPagesController < ApplicationController
 
     # handle errors (4xx & 5xx)
     if @response.status.client_error? || @response.status.server_error?
-      render plain: "Sorry, error"
+      @htmldoc = File.read("../views/static_pages/error.html.erb")
+      render html: @htmldoc.html_safe
       return
     end
 
@@ -32,6 +33,24 @@ class StaticPagesController < ApplicationController
   end
 
   def statistics
+    # get current_user's wistia_project_id & authorization token
+    @current_user = current_user
+    project_id = @current_user.wistia_project_id
+    auth_token = "b85eb878c603fbe6f87bb758ca5cffd93dbdd14d26fabe3174706116bd3912a3"
+    request = "https://api.wistia.com/v1/stats/projects/#{project_id}.json?api_password=#{auth_token}"
+
+    @response = HTTP.get(request)
+
+    # handle errors (4xx & 5xx)
+    if @response.status.client_error? || @response.status.server_error?
+      @htmldoc = File.read("../views/static_pages/error.html.erb")
+      render html: @htmldoc.html_safe
+      return
+    end
+
+    @response = HTTP.get(request).body # didnt get body to handle errors
+
+    puts @response
   end
 
   def progress
