@@ -1,4 +1,6 @@
 <% provide(:title, "Statistics") %>
 <section>
-    <%= @response["load_count"] %>
+    <% @response.each do |key, val| %>
+        <%= "#{key}, #{val}" %>
+    <% end %>
 </section>

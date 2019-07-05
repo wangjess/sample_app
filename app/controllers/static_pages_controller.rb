@@ -48,8 +48,8 @@ class StaticPagesController < ApplicationController
       return
     end
 
-    @response = HTTP.get(request).body # didnt get body to handle errors
-
+    @response = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
+    
     puts @response
   end
 
