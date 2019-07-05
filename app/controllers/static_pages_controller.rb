@@ -19,8 +19,8 @@ class StaticPagesController < ApplicationController
 
     # handle errors (4xx & 5xx)
     if @response.status.client_error? || @response.status.server_error?
-      @htmldoc = File.read("../views/static_pages/error.html.erb")
-      render html: @htmldoc.html_safe
+      flash[:info] = "Looks like you have no videos!"
+      redirect_to root_path
       return
     end
 
@@ -43,8 +43,8 @@ class StaticPagesController < ApplicationController
 
     # handle errors (4xx & 5xx)
     if @response.status.client_error? || @response.status.server_error?
-      @htmldoc = File.read("../views/static_pages/error.html.erb")
-      render html: @htmldoc.html_safe
+      flash[:info] = "Unable to show statistics, as you do not have any videos!"
+      redirect_to root_path
       return
     end
 
