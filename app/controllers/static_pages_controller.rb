@@ -43,7 +43,7 @@ class StaticPagesController < ApplicationController
 
     # handle errors (4xx & 5xx)
     if @response.status.client_error? || @response.status.server_error?
-      flash[:info] = "Unable to show statistics, as you do not have any videos!"
+      flash[:info] = "Looks like you have no videos!"
       redirect_to root_path
       return
     end
