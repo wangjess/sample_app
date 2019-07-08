@@ -54,5 +54,5 @@ class StaticPagesController < ApplicationController
   end
 
   def progress
-  end
+  end 
 end
