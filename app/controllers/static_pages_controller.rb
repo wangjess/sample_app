@@ -27,12 +27,19 @@ class StaticPagesController < ApplicationController
 
     @response = HTTP.get(request).body # didnt get body to handle errors
 
-    puts @response
-
     # get embed code for each video using the hashed_id, put in list
     @video_iframe_urls = JSON.parse(@response)['medias'].map do |p|
       "https://fast.wistia.com/embed/iframe/#{p["hashed_id"]}?version=v1&controlsVisibleOnLoad=true&playerColor=aae3d8"
     end
+
+    puts @video_iframe_urls
+
+    # get title for each video, put in list
+    @video_names = JSON.parse(@response)['medias'].map do |p|
+      p["name"]
+    end
+
+    puts @video_names
   end
 
   def statistics
