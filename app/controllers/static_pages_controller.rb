@@ -32,14 +32,21 @@ class StaticPagesController < ApplicationController
       "https://fast.wistia.com/embed/iframe/#{p["hashed_id"]}?version=v1&controlsVisibleOnLoad=true&playerColor=aae3d8"
     end
 
-    puts @video_iframe_urls
-
     # get title for each video, put in list
     @video_names = JSON.parse(@response)['medias'].map do |p|
       p["name"]
     end
 
-    puts @video_names
+    # get info about specific video, put in list
+    @media_show_request = JSON.parse(@response)['medias'].map do |p|
+      "https://api.wistia.com/v1/medias/#{p["hashed_id"]}.json?api_password=#{auth_token}"
+    end
+
+    @thumbnails = @media_show_request.each do |media|
+      HTTP.get(media).body
+    end
+
+    puts @thumbnails
   end
 
   def statistics
