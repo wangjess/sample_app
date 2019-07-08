@@ -1,18 +1,21 @@
 <% provide(:title, "Statistics") %>
 <section>
-    <% @response.each do |key, val| %>
-        <h1>
-        <% if "#{key}" == "load_count" %>
-            <%= "Times Loaded:" %>
-        <% elsif "#{key}" == "play_count" %>
-            <%= "Number of Plays:" %>
-        <% elsif "#{key}" == "hours_watched" %>
-            <%= "Total Hours Watched:" %>
-        <% elsif "#{key}" == "number_of_videos" %>
-            <%= "Number of Videos:" %>
+    <h1> Total Video Statistics <h1>
+    <div>
+        <% @response.each do |key, val| %>
+            <h3>
+            <% if "#{key}" == "load_count" %>
+                <%= "Times Loaded:" %>
+            <% elsif "#{key}" == "play_count" %>
+                <%= "Number of Plays:" %>
+            <% elsif "#{key}" == "hours_watched" %>
+                <%= "Total Hours Watched:" %>
+            <% elsif "#{key}" == "number_of_videos" %>
+                <%= "Number of Videos:" %>
+            <% end %>
+            <br>
+            <%= "#{val}" %>
+            <h3>
         <% end %>
-        <br>
-        <%= "#{val}" %>
-        <h1>
-    <% end %>
+    </div>
 </section>
