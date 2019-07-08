@@ -36,17 +36,6 @@ class StaticPagesController < ApplicationController
     @video_names = JSON.parse(@response)['medias'].map do |p|
       p["name"]
     end
-
-    # get info about specific video, put in list
-    @media_show_request = JSON.parse(@response)['medias'].map do |p|
-      "https://api.wistia.com/v1/medias/#{p["hashed_id"]}.json?api_password=#{auth_token}"
-    end
-
-    @thumbnails = @media_show_request.each do |media|
-      HTTP.get(media).body
-    end
-
-    puts @thumbnails
   end
 
   def statistics
