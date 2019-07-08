@@ -16,6 +16,7 @@ class StaticPagesController < ApplicationController
     request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{auth_token}"
 
     @response = HTTP.get(request)
+    @project_name = JSON.parse(@response)["name"]
 
     # handle errors (4xx & 5xx)
     if @response.status.client_error? || @response.status.server_error?
@@ -25,6 +26,8 @@ class StaticPagesController < ApplicationController
     end
 
     @response = HTTP.get(request).body # didnt get body to handle errors
+
+    puts @response
 
     # get embed code for each video using the hashed_id, put in list
     @video_iframe_urls = JSON.parse(@response)['medias'].map do |p|

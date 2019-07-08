@@ -1,6 +1,9 @@
 <% provide(:title, "Your Videos") %>
 <section>
-    <% @video_iframe_urls.each do |video_iframe_url| %>
-      <iframe class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
-    <% end %>
+  <h1>
+    <%= @project_name %>
+  <h1>
+  <% @video_iframe_urls.each do |video_iframe_url| %>
+    <iframe class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
+  <% end %>
 </section>
