@@ -1,7 +1,12 @@
 <% provide(:title, "Statistics") %>
 <section>
     <h1> Total Video Statistics <h1>
+    <h2>This page shows your total culmination of all your video statistics over time! (Whether 1 video or more!)
+    <br>
+    This culminates all Facebook and Wistia data. Other data can be integrated upon client request.<h2>
+
     <%-# Wistia Statistics -%>
+    <h1> Wistia Statistics <h1>
     <div>
         <% @response.each do |key, val| %>
             <h3>
@@ -19,5 +24,10 @@
             <h3>
         <% end %>
     </div>
+
     <%-# Facebook Statistics -%>
+    <h1> Facebook Statistics <h1>
+    <div>
+        COMING SOON!
+    </div>
 </section>
