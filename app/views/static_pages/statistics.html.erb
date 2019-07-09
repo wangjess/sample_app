@@ -22,7 +22,12 @@
                 <%= "Number of Videos:" %>
             <% end %>
             <br>
-            <%= "#{val}" %>
+            <%-# Limits Decimal Places -%>
+            <% if "#{val}" % 1 != 0 %>
+                <%= '%.2f' % "#{val}" %>
+            <% else %>
+                <%= "#{val}" %>
+            <% end %>
             <h3>
         <% end %>
     </div>
