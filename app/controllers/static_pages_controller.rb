@@ -47,6 +47,8 @@ class StaticPagesController < ApplicationController
       request = "https://api.wistia.com/v1/stats/medias/#{p}.json?api_password=#{auth_token}"
       @each_video_stats.push(JSON.parse(HTTP.get(request).body))
     end
+
+    puts @each_video_stats
   end
 
   def statistics

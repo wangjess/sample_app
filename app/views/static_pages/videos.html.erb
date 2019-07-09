@@ -9,27 +9,31 @@
   <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
     <iframe allow="fullscreen" class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
     <h2><b><%= video_name %></b><h2>
-      <div>
-        <% each_video_stats.each do |key, val| %>
-            <h2>
-            <% if "#{key}" == "load_count" %>
-                <%= "Times Loaded:" %>
-            <% elsif "#{key}" == "play_count" %>
-                <%= "Times Played:" %>
-            <% elsif "#{key}" == "play_rate" %>
-                <%= "Percentage of People Who Clicked Play:" %>
-            <% elsif "#{key}" == "hours_watched" %>
-                <%= "Total Hours Watched:" %>
-            <% elsif "#{key}" == "engagement" %>
-                <%= "Average Percentage of Video That Gets Viewed:" %>
-            <% elsif "#{key}" == "visitors" %>
-                <%= "Number of Unique People Who Watched This Video:" %>
-            <% end %>
-            <br>
-            <%= "#{val}" %>
-            <h2>
+    <% each_video_stats.each do |key, val| %>
+        <h2>
+        <% if "#{key}" == "load_count" %>
+            <%= "Times Loaded:" %>
+        <% elsif "#{key}" == "play_count" %>
+            <%= "Times Played:" %>
+        <% elsif "#{key}" == "play_rate" %>
+            <%= "Percentage of People Who Clicked Play:" %>
+        <% elsif "#{key}" == "hours_watched" %>
+            <%= "Total Hours Watched:" %>
+        <% elsif "#{key}" == "engagement" %>
+            <%= "Average Percentage of Video That Gets Viewed:" %>
+        <% elsif "#{key}" == "visitors" %>
+            <%= "Number of Unique People Who Watched This Video:" %>
+        <% elsif "#{key}" == "actions" %>
+            <% next %>
         <% end %>
-      </div>
+        <br>
+        <% if "#{val}" % 1 != 0 %>
+          <%= '%.2f' % "#{val}" %>
+        <% else %>
+          <%= "#{val}" %>
+        <% end %>
+        <h2>
+    <% end %>
     <h2>
   <% end %>
 </section>
