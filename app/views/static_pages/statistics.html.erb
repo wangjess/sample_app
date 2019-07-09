@@ -9,28 +9,26 @@
 
     <%-# Wistia Statistics -%>
     <h1> Wistia Statistics <h1>
-    <div>
-        <% @response.each do |key, val| %>
-            <h3>
-            <% if "#{key}" == "load_count" %>
-                <%= "Times Loaded:" %>
-            <% elsif "#{key}" == "play_count" %>
-                <%= "Number of Plays:" %>
-            <% elsif "#{key}" == "hours_watched" %>
-                <%= "Total Hours Watched:" %>
-            <% elsif "#{key}" == "number_of_videos" %>
-                <%= "Number of Videos:" %>
-            <% end %>
-            <br>
-            <%-# Limits Decimal Places -%>
-            <% if "#{val}" % 1 != 0 %>
-                <%= '%.2f' % "#{val}" %>
-            <% else %>
-                <%= "#{val}" %>
-            <% end %>
-            <h3>
+    <% @response.each do |key, val| %>
+        <h2>
+        <% if "#{key}" == "load_count" %>
+            <%= "Times Loaded:" %>
+        <% elsif "#{key}" == "play_count" %>
+            <%= "Number of Plays:" %>
+        <% elsif "#{key}" == "hours_watched" %>
+            <%= "Total Hours Watched:" %>
+        <% elsif "#{key}" == "number_of_videos" %>
+            <%= "Number of Videos:" %>
         <% end %>
-    </div>
+        <br>
+        <%-# Limits Decimal Places -%>
+        <% if "#{val}" % 1 != 0 %>
+            <%= '%.2f' % "#{val}" %>
+        <% else %>
+            <%= "#{val}" %>
+        <% end %>
+        <h2>
+    <% end %>
 
     <%-# Facebook Statistics -%>
     <h1> Facebook Statistics <h1>
