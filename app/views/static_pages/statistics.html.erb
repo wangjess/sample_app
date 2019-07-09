@@ -1,6 +1,7 @@
 <% provide(:title, "Statistics") %>
 <section>
     <h1> Total Video Statistics <h1>
+    <%-# Wistia Statistics -%>
     <div>
         <% @response.each do |key, val| %>
             <h3>
@@ -18,4 +19,5 @@
             <h3>
         <% end %>
     </div>
+    <%-# Facebook Statistics -%>
 </section>

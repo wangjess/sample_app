@@ -3,8 +3,9 @@
   <h1>
     <%= @project_name %>
   <h1>
+  <%-# Videos -%>
   <% @video_iframe_urls.zip(@video_names).each do |video_iframe_url, video_name| %>
-    <iframe class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
+    <iframe allow="fullscreen" class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
     <h2><%= video_name %><h2>
   <% end %>
 </section>

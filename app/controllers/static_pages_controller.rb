@@ -47,8 +47,6 @@ class StaticPagesController < ApplicationController
 
     @response = HTTP.get(request)
 
-    puts @response
-
     # handle errors (4xx & 5xx)
     if @response.status.client_error? || @response.status.server_error?
       flash[:info] = "Looks like you have no videos!"
@@ -57,8 +55,6 @@ class StaticPagesController < ApplicationController
     end
 
     @response = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
-    
-    puts @response
   end
 
   def progress
