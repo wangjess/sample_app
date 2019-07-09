@@ -1,6 +1,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+/* background image */
+.splash {
+  background-image: url("homepage.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
