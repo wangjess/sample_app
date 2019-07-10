@@ -45,10 +45,16 @@ class StaticPagesController < ApplicationController
     # 3: get individual stats for each video using the media_ids for each video, put in list
     media_ids.each do |p|
       request = "https://api.wistia.com/v1/stats/medias/#{p}.json?api_password=#{auth_token}"
+      # reduce hours_watched to two decimals
+      puts JSON.parse(HTTP.get(request).body)
+      puts JSON.parse(HTTP.get(request).body)["hours_watched"]
+      @hours = JSON.parse(HTTP.get(request).body)["hours_watched"]
+      # convert to minutes, store in json
+      JSON.parse(HTTP.get(request).body)["hours_watched"] = "10".to_json
+      puts "MINUTES:"
+      puts JSON.parse(HTTP.get(request).body)["hours_watched"]
       @each_video_stats.push(JSON.parse(HTTP.get(request).body))
     end
-
-    puts @each_video_stats
   end
 
   def statistics
