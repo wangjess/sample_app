@@ -76,6 +76,18 @@ class StaticPagesController < ApplicationController
     end
 
     @response = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
+
+    # get top three cities: 1) create hash map 2) pick top
+    request = "https://api.wistia.com/v1/stats/events.json?api_password=#{auth_token}&?media_id=3#{project_id}"
+    @events_response = JSON.parse(HTTP.get(request).body)
+
+    puts @events_response
+
+    @cities = JSON.parse(@events_response)[].map do |p|
+      puts p["city"]
+    end
+
+    puts @cities
   end
 
   def progress
