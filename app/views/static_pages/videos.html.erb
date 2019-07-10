@@ -14,50 +14,22 @@
         <% if "#{key}" == "play_count" %>
             <%= "Times Played:" %>
             <br>
-            <%-# Limits Decimal Places -%>
-            <% if "#{val}" % 1 != 0 %>
-              <%= '%.2f' % "#{val}" %>
-            <% else %>
-              <%= "#{val}" %>
-            <% end %>
-        <% elsif "#{key}" == "play_rate" %>
-            <%= "Percentage of People Who Clicked Play:" %>
-            <br>
-            <%-# Limits Decimal Places -%>
-            <% if "#{val}" % 1 != 0 %>
-              <%= '%.2f' % "#{val}" %>
-            <% else %>
-              <%= "#{val}" %>
-            <% end %>
+            <%= "#{val}" %>
         <% elsif "#{key}" == "hours_watched" %>
-            <%= "Total Hours Watched:" %>
-            <br>
-            <%-# Limits Decimal Places -%>
-            <% if "#{val}" % 1 != 0 %>
-              <%= '%.2f' % "#{val}" %>
-            <% else %>
-              <%= "#{val}" %>
-            <% end %>
+            <%= "Total Minutes Watched:" %>
+            <%= "#{val}" %>
         <% elsif "#{key}" == "engagement" %>
             <%= "Average Percentage of Video That Gets Viewed:" %>
             <br>
-            <%-# Limits Decimal Places -%>
-            <% if "#{val}" % 1 != 0 %>
-              <%= '%.2f' % "#{val}" %>
-            <% else %>
-              <%= "#{val}" %>
-            <% end %>
+            <%= "#{val}" %>
         <% elsif "#{key}" == "visitors" %>
             <%= "Number of Unique People Who Watched This Video:" %>
             <br>
-            <%-# Limits Decimal Places -%>
-            <% if "#{val}" % 1 != 0 %>
-              <%= '%.2f' % "#{val}" %>
-            <% else %>
-              <%= "#{val}" %>
-            <% end %>
+            <%= "#{val}" %>
+        <% elsif "#{key}" == "play_rate" %>
+            <%-# Do Nothing -%>
         <% elsif "#{key}" == "actions" %>
-            <% next %>
+            <%-# Do Nothing -%>
         <% else %>
             <%-# Do Nothing -%>
         <% end %>
