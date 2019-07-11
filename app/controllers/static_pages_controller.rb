@@ -62,6 +62,7 @@ class StaticPagesController < ApplicationController
   def statistics
     # get current_user's wistia_project_id & authorization token
     @current_user = current_user
+    @cities = []
     project_id = @current_user.wistia_project_id
     auth_token = "b85eb878c603fbe6f87bb758ca5cffd93dbdd14d26fabe3174706116bd3912a3"
     request = "https://api.wistia.com/v1/stats/projects/#{project_id}.json?api_password=#{auth_token}"
@@ -77,15 +78,20 @@ class StaticPagesController < ApplicationController
 
     @response = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
 
-    # get top three cities: 1) create hash map 2) pick top
+    # obtain cities statistics for all videos
     request = "https://api.wistia.com/v1/stats/events.json?api_password=#{auth_token}&?media_id=3#{project_id}"
     @events_response = JSON.parse(HTTP.get(request).body)
 
-    puts @events_response
+    puts JSON.parse(HTTP.get(request).body).class.name
 
-    @cities = JSON.parse(@events_response)[].map do |p|
-      puts p["city"]
+    # create cities list
+    @cities = @events_response.map do |p|
+      p["city"]
     end
+    
+    # create hash map
+
+    # get top three cities
 
     puts @cities
   end
