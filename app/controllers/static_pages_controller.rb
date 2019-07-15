@@ -51,9 +51,9 @@ class StaticPagesController < ApplicationController
       # all stats should be WHOLE numbers except for play_rate & engagement
       @hash["load_count"] = @hash["load_count"]
       @hash["play_count"] = @hash["play_count"].to_i
-      @hash["play_rate"] = @hash["play_rate"]
+      @hash["play_rate"] = @hash["play_rate"] * 100
       @hash["hours_watched"] = @hash["hours_watched"].to_i
-      @hash["engagement"] = @hash["engagement"]
+      @hash["engagement"] = @hash["engagement"] * 100
       @hash["visitors"] = @hash["visitors"].to_i
       @each_video_stats.push(@hash)
     end
