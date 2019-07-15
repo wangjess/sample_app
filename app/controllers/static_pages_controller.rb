@@ -107,7 +107,11 @@ class StaticPagesController < ApplicationController
     @noEmptyCities = @cities.reject { |c| c.empty? }
 
     # finally, get top three cities for entire videos
-    puts @noEmptyCities
+    @hashmap = Hash.new(0)
+    @noEmptyCities.map do |key|
+      @hashmap[key] += 1
+    end
+    @topThree = Hash[@hashmap.sort_by { |k,v| -v }[0..2]]
   end
 
   def progress
