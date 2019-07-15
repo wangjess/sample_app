@@ -87,22 +87,27 @@ class StaticPagesController < ApplicationController
 
     # first, collect hashed IDs
     JSON.parse(@hash)["medias"].map do |m|
-      puts m["hashed_id"]
       @media_ids.push(m["hashed_id"])
     end
 
     # then, create city list from each video using hashed IDs
-    @cities = @media_ids.map do |m|
+    @media_ids.map do |m|
       request = "https://api.wistia.com/v1/stats/events.json?api_password=#{auth_token}&media_id=#{m}"
       @result = JSON.parse(HTTP.get(request).body)
       @hash = @result
-      puts @hash
-      puts @hash.count
-      if @hash["city"] != "":
-        @hash["city"]
+      # iterate through that events list for each video
+      @hash.map do |h|
+        if h["city"]
+          @cities.push(h["city"])
+        end
+      end
     end
+    
+    # remove blanks
+    @noEmptyCities = @cities.reject { |c| c.empty? }
 
     # finally, get top three cities for entire videos
+    puts @noEmptyCities
   end
 
   def progress
