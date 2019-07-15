@@ -25,6 +25,7 @@
         <br>
         <%-# Limits Decimal Places -%>
         <% if "#{val}" % 1 != 0 %>
+            <%= hey %>
             <%= '%.2f' % "#{val}" %>
         <% else %>
             <%= "#{val}" %>
