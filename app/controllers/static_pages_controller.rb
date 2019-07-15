@@ -48,12 +48,12 @@ class StaticPagesController < ApplicationController
       # use intermediate hash variable to convert to minutes
       @hash = JSON.parse(HTTP.get(request).body)
       @hash["hours_watched"] = @hash["hours_watched"] * 60
-      # all stats should be WHOLE numbers
+      # all stats should be WHOLE numbers except for play_rate & engagement
       @hash["load_count"] = @hash["load_count"]
       @hash["play_count"] = @hash["play_count"].to_i
-      @hash["play_rate"] = @hash["play_rate"].to_i
+      @hash["play_rate"] = @hash["play_rate"]
       @hash["hours_watched"] = @hash["hours_watched"].to_i
-      @hash["engagement"] = @hash["engagement"].to_i
+      @hash["engagement"] = @hash["engagement"]
       @hash["visitors"] = @hash["visitors"].to_i
       @each_video_stats.push(@hash)
     end
