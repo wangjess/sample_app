@@ -9,7 +9,7 @@
 
     <%-# Wistia Statistics -%>
     <h1> Wistia Statistics <h1>
-    <% @response.each do |key, val| %>
+    <% @statistics.each do |key, val| %>
         <h2>
         <% if "#{key}" == "load_count" %>
             <%= "Times Loaded:" %>
@@ -32,6 +32,7 @@
         <h2>
     <% end %>
     <h2><%= @cities %><h2>
+    <h2><%= @media_ids %><h2>
 
     <%-# Facebook Statistics -%>
     <h1> Facebook Statistics <h1>

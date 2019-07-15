@@ -60,40 +60,49 @@ class StaticPagesController < ApplicationController
   end
 
   def statistics
+    @cities = []
+    @media_ids = []
+
     # get current_user's wistia_project_id & authorization token
     @current_user = current_user
-    @cities = []
     project_id = @current_user.wistia_project_id
     auth_token = "b85eb878c603fbe6f87bb758ca5cffd93dbdd14d26fabe3174706116bd3912a3"
     request = "https://api.wistia.com/v1/stats/projects/#{project_id}.json?api_password=#{auth_token}"
 
-    @response = HTTP.get(request)
+    @statistics = HTTP.get(request)
 
     # handle errors (4xx & 5xx)
-    if @response.status.client_error? || @response.status.server_error?
+    if @statistics.status.client_error? || @statistics.status.server_error?
       flash[:info] = "Looks like you have no videos!"
       redirect_to root_path
       return
     end
 
-    @response = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
+    # statistics
+    @statistics = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
 
-    # obtain cities statistics for all videos
-    request = "https://api.wistia.com/v1/stats/events.json?api_password=#{auth_token}&?media_id=3#{project_id}"
-    @events_response = JSON.parse(HTTP.get(request).body)
+    # obtain city statistics for all videos
+    request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{auth_token}"
+    @hash = @response = HTTP.get(request)
 
-    puts JSON.parse(HTTP.get(request).body).class.name
-
-    # create cities list
-    @cities = @events_response.map do |p|
-      p["city"]
+    # first, collect hashed IDs
+    JSON.parse(@hash)["medias"].map do |m|
+      puts m["hashed_id"]
+      @media_ids.push(m["hashed_id"])
     end
-    
-    # create hash map
 
-    # get top three cities
+    # then, create city list from each video using hashed IDs
+    @cities = @media_ids.map do |m|
+      request = "https://api.wistia.com/v1/stats/events.json?api_password=#{auth_token}&media_id=#{m}"
+      @result = JSON.parse(HTTP.get(request).body)
+      @hash = @result
+      puts @hash
+      puts @hash.count
+      if @hash["city"] != "":
+        @hash["city"]
+    end
 
-    puts @cities
+    # finally, get top three cities for entire videos
   end
 
   def progress
