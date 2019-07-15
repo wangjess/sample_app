@@ -66,8 +66,7 @@ class StaticPagesController < ApplicationController
     # get current_user's wistia_project_id & authorization token
     @current_user = current_user
     project_id = @current_user.wistia_project_id
-    auth_token = "b85eb878c603fbe6f87bb758ca5cffd93dbdd14d26fabe3174706116bd3912a3"
-    request = "https://api.wistia.com/v1/stats/projects/#{project_id}.json?api_password=#{auth_token}"
+    request = "https://api.wistia.com/v1/stats/projects/#{project_id}.json?api_password=#{ENV['AUTH_TOKEN']}"
 
     @statistics = HTTP.get(request)
 
@@ -82,7 +81,7 @@ class StaticPagesController < ApplicationController
     @statistics = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
 
     # obtain city statistics for all videos
-    request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{auth_token}"
+    request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{ENV['AUTH_TOKEN']}"
     @hash = @response = HTTP.get(request)
 
     # first, collect hashed IDs
@@ -92,7 +91,7 @@ class StaticPagesController < ApplicationController
 
     # then, create city list from each video using hashed IDs
     @media_ids.map do |m|
-      request = "https://api.wistia.com/v1/stats/events.json?api_password=#{auth_token}&media_id=#{m}"
+      request = "https://api.wistia.com/v1/stats/events.json?api_password=#{ENV['AUTH_TOKEN']}&media_id=#{m}"
       @result = JSON.parse(HTTP.get(request).body)
       @hash = @result
       # iterate through that events list for each video

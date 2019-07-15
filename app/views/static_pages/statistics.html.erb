@@ -13,23 +13,25 @@
         <h2>
         <% if "#{key}" == "load_count" %>
             <%= "Times Loaded:" %>
+            <%= "#{val}" %>
         <% elsif "#{key}" == "play_count" %>
             <%= "Number of Plays:" %>
+            <%= "#{val}" %>
         <% elsif "#{key}" == "hours_watched" %>
             <%= "Total Hours Watched:" %>
+            <%-# Limits Decimal Places -%>
+            <% if "#{val}" % 1 != 0 %>
+                <%= '%.2f' % "#{val}" %>
+            <% else %>
+                <%= "#{val}" %>
+            <% end %>
         <% elsif "#{key}" == "number_of_videos" %>
             <%= "Number of Videos:" %>
+            <%= "#{val}" %>
         <% else %>
             <%-# Do Nothing -%>
         <% end %>
         <br>
-        <%-# Limits Decimal Places -%>
-        <% if "#{val}" % 1 != 0 %>
-            <%= hey %>
-            <%= '%.2f' % "#{val}" %>
-        <% else %>
-            <%= "#{val}" %>
-        <% end %>
         <h2>
     <% end %>
     <%-# Top Three Cities -%>
