@@ -111,7 +111,9 @@ class StaticPagesController < ApplicationController
     @noEmptyCities.map do |key|
       @hashmap[key] += 1
     end
-    @topThree = Hash[@hashmap.sort_by { |k,v| -v }[0..2]]
+    @topThreeHash = Hash[@hashmap.sort_by { |k,v| -v }[0..2]]
+    @topThree = @topThreeHash.keys
+    puts @topThree
   end
 
   def progress

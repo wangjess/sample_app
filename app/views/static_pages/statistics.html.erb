@@ -31,7 +31,14 @@
         <% end %>
         <h2>
     <% end %>
-    <h2><%= @topThree %><h2>
+    <%-# Top Three Cities -%>
+    <h2> Top Three Cities:
+    <br>
+        <% @topThree.each do |item| %>
+            <%= item %>
+            <br>
+        <% end %>
+    <h2>
 
     <%-# Facebook Statistics -%>
     <h1> Facebook Statistics <h1>
