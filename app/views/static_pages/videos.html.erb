@@ -1,5 +1,7 @@
 <% provide(:title, "Your Videos") %>
-<section>
+<!DOCTYPE html>
+<html>
+<body>
   <h1> Your Videos <h1>
   <h2>
       This page shows all of your videos. Underneath each video is its Wistia statistics.
@@ -11,30 +13,31 @@
     <h2><b><%= video_name %></b><h2>
     <% each_video_stats.each do |key, val| %>
         <h2>
-        <% if "#{key}" == "load_count" %>
-            <%= "Times Loaded:" %>
-        <% elsif "#{key}" == "play_count" %>
+        <% if "#{key}" == "play_count" %>
             <%= "Times Played:" %>
-        <% elsif "#{key}" == "play_rate" %>
-            <%= "Percentage of People Who Clicked Play:" %>
+            <br>
+            <%= "#{val}" %>
         <% elsif "#{key}" == "hours_watched" %>
-            <%= "Total Hours Watched:" %>
+            <%= "Total Minutes Watched:" %>
+            <%= "#{val}" %>
         <% elsif "#{key}" == "engagement" %>
             <%= "Average Percentage of Video That Gets Viewed:" %>
+            <br>
+        <%= '%.2f' % "#{val}" %>
         <% elsif "#{key}" == "visitors" %>
             <%= "Number of Unique People Who Watched This Video:" %>
+            <br>
+            <%= "#{val}" %>
+        <% elsif "#{key}" == "play_rate" %>
+            <%-# Do Nothing -%>
         <% elsif "#{key}" == "actions" %>
-            <% next %>
-        <% end %>
-        <br>
-        <%-# Limits Decimal Places -%>
-        <% if "#{val}" % 1 != 0 %>
-          <%= '%.2f' % "#{val}" %>
+            <%-# Do Nothing -%>
         <% else %>
-          <%= "#{val}" %>
+            <%-# Do Nothing -%>
         <% end %>
         <h2>
     <% end %>
     <h2>
   <% end %>
-</section>
+</body>
+</html>

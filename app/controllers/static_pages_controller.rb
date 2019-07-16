@@ -12,8 +12,7 @@ class StaticPagesController < ApplicationController
     # get current_user's wistia_project_id & authorization token
     @current_user = current_user
     project_id = @current_user.wistia_project_id
-    auth_token = "b85eb878c603fbe6f87bb758ca5cffd93dbdd14d26fabe3174706116bd3912a3"
-    request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{auth_token}"
+    request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{ENV['AUTH_TOKEN']}"
 
     media_ids = []
     @each_video_stats = []
@@ -44,30 +43,74 @@ class StaticPagesController < ApplicationController
 
     # 3: get individual stats for each video using the media_ids for each video, put in list
     media_ids.each do |p|
-      request = "https://api.wistia.com/v1/stats/medias/#{p}.json?api_password=#{auth_token}"
-      @each_video_stats.push(JSON.parse(HTTP.get(request).body))
+      request = "https://api.wistia.com/v1/stats/medias/#{p}.json?api_password=#{ENV['AUTH_TOKEN']}"
+      # use intermediate hash variable to convert to minutes
+      @hash = JSON.parse(HTTP.get(request).body)
+      @hash["hours_watched"] = @hash["hours_watched"] * 60
+      # all stats should be WHOLE numbers except for play_rate & engagement
+      @hash["load_count"] = @hash["load_count"]
+      @hash["play_count"] = @hash["play_count"].to_i
+      @hash["play_rate"] = @hash["play_rate"] * 100
+      @hash["hours_watched"] = @hash["hours_watched"].to_i
+      @hash["engagement"] = @hash["engagement"] * 100
+      @hash["visitors"] = @hash["visitors"].to_i
+      @each_video_stats.push(@hash)
     end
-
-    puts @each_video_stats
   end
 
   def statistics
+    @cities = []
+    @media_ids = []
+
     # get current_user's wistia_project_id & authorization token
     @current_user = current_user
     project_id = @current_user.wistia_project_id
-    auth_token = "b85eb878c603fbe6f87bb758ca5cffd93dbdd14d26fabe3174706116bd3912a3"
-    request = "https://api.wistia.com/v1/stats/projects/#{project_id}.json?api_password=#{auth_token}"
+    request = "https://api.wistia.com/v1/stats/projects/#{project_id}.json?api_password=#{ENV['AUTH_TOKEN']}"
 
-    @response = HTTP.get(request)
+    @statistics = HTTP.get(request)
 
     # handle errors (4xx & 5xx)
-    if @response.status.client_error? || @response.status.server_error?
+    if @statistics.status.client_error? || @statistics.status.server_error?
       flash[:info] = "Looks like you have no videos!"
       redirect_to root_path
       return
     end
 
-    @response = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
+    # statistics
+    @statistics = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
+
+    # obtain city statistics for all videos
+    request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{ENV['AUTH_TOKEN']}"
+    @hash = @response = HTTP.get(request)
+
+    # first, collect hashed IDs
+    JSON.parse(@hash)["medias"].map do |m|
+      @media_ids.push(m["hashed_id"])
+    end
+
+    # then, create city list from each video using hashed IDs
+    @media_ids.map do |m|
+      request = "https://api.wistia.com/v1/stats/events.json?api_password=#{ENV['AUTH_TOKEN']}&media_id=#{m}"
+      @result = JSON.parse(HTTP.get(request).body)
+      @hash = @result
+      # iterate through that events list for each video
+      @hash.map do |h|
+        if h["city"]
+          @cities.push(h["city"])
+        end
+      end
+    end
+    
+    # remove blanks
+    @noEmptyCities = @cities.reject { |c| c.empty? }
+
+    # finally, get top three cities for entire videos
+    @hashmap = Hash.new(0)
+    @noEmptyCities.map do |key|
+      @hashmap[key] += 1
+    end
+    @topThreeHash = Hash[@hashmap.sort_by { |k,v| -v }[0..2]]
+    @topThree = @topThreeHash.keys
   end
 
   def progress
