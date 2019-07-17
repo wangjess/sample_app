@@ -226,10 +226,11 @@ videos {
   height: auto;
 }
 
-/* Remove me */
+/* styling for statistics */
 .box {
   padding: 10px ;
   border: 1px solid green ;
+  color: white;
 }
 .green{
   background-color:green;
@@ -242,4 +243,10 @@ videos {
 }
 .purple{
   background-color:#bf09e3;
+}
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
 }
