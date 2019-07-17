@@ -11,7 +11,7 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt',         '3.1.12'
 gem 'jquery-rails'
 gem 'dotenv-rails'
-gem 'chartkick'
+gem 'chartkick', '~> 3.2', '>= 3.2.1'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'puma'
