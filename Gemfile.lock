@@ -50,6 +50,10 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.6.0)
       execjs
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.12)
     bindex (0.7.0)
     bootsnap (1.4.4)
@@ -69,7 +73,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    chartkick (3.2.1)
     childprocess (1.0.1)
       rake (< 13.0)
     chromedriver-helper (2.1.1)
@@ -84,6 +87,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
@@ -201,6 +205,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    react-rails (2.5.0)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     regexp_parser (1.5.1)
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
@@ -267,7 +277,6 @@ DEPENDENCIES
   bootstrap-will_paginate (= 1.0.0)
   byebug
   capybara (>= 2.15)
-  chartkick
   chromedriver-helper
   coffee-rails (~> 4.2)
   dotenv-rails
@@ -284,6 +293,7 @@ DEPENDENCIES
   puma
   rails (~> 5.2.3)
   rails-controller-testing (= 1.0.2)
+  react-rails
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

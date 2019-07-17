@@ -12,6 +12,7 @@
     <iframe allow="fullscreen" class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
     <h2><b><%= video_name %></b><h2>
     <h2>Statistics:<h2>
+    <%= react_component('video_percentage') %>
     <div class="stacky">
         <div class="box grey smallbox">
             <p class="alignleft">Times Played: </p>
