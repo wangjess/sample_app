@@ -14,17 +14,14 @@
     <div class="box green">
         <p class="alignleft">Times Loaded: </p>
         <p class="alignright"><%= @statistics["load_count"] %></p>
-        <div style="clear: both;"></div>
     </div>
     <div class="box blue">
         <p class="alignleft">Number of Views: </p>
         <p class="alignright"><%= @statistics["play_count"] %></p>
-        <div style="clear: both;"></div>
     </div>
     <div class="box orange">
         <p class="alignleft">Total Hours Watched:</p>
         <p class="alignright"><%= '%.2f' % @statistics["hours_watched"] %></p>
-        <div style="clear: both;"></div>
     </div>
     <div class="box purple">
         <p>Top 3 Cities of Viewers:</p>
@@ -32,7 +29,6 @@
             <%= item %>
             <br>
         <% end %>
-        <div style="clear: both;"></div>
     </div>
 </body>
 </html>
