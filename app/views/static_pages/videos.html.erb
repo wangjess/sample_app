@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <h1> Your Videos <h1>
+  <h1 style="color: black;"> Your Videos <h1>
   <h2>
       This page shows all of your videos. Underneath each video is its Wistia statistics.
   <h2>
 
   <%-# For Loop That Iterates Through Videos, Embeds Video & Prints Individual Statistics -%>
   <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
+    <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
     <iframe allow="fullscreen" class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
-    <h2><b><%= video_name %></b><h2>
-    <h2>Statistics:<h2>
+    <p style="color: black;">Statistics:<p>
     <%= react_component('video_percentage') %>
     <div class="stacky">
         <div class="box grey smallbox">
