@@ -228,9 +228,11 @@ videos {
 
 /* styling for statistics */
 .box {
-  padding: 10px ;
-  border: 1px solid green ;
+  margin: 0 auto;
   color: white;
+  border-radius: 20px;
+  padding: 0.3em;
+  display: inline-block
 }
 .green{
   background-color:green;
