@@ -12,12 +12,12 @@
     <%-# Wistia Statistics -%>
     <h1> Wistia Statistics <h1>
     <div class="box green">
-        <p class="alignleft">Times Loaded:</p>
+        <p class="alignleft">Times Loaded: </p>
         <p class="alignright"><%= @statistics["load_count"] %></p>
         <div style="clear: both;"></div>
     </div>
     <div class="box blue">
-        <p class="alignleft">Number of Views:</p>
+        <p class="alignleft">Number of Views: </p>
         <p class="alignright"><%= @statistics["play_count"] %></p>
         <div style="clear: both;"></div>
     </div>
@@ -27,7 +27,7 @@
         <div style="clear: both;"></div>
     </div>
     <div class="box purple">
-        Top 3 Cities of Viewers:
+        <p>Top 3 Cities of Viewers:</p>
         <br>
         <% @topThree.each do |item| %>
             <%= item %>
