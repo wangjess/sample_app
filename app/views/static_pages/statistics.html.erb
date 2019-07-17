@@ -11,24 +11,28 @@
 
     <%-# Wistia Statistics -%>
     <h1> Wistia Statistics <h1>
-    <div class="box green">
-        <p class="alignleft">Times Loaded: </p>
-        <p class="alignright"><%= @statistics["load_count"] %></p>
+    <h2>
+    <div class="stacky">
+        <div class="box green">
+            <p class="alignleft">Times Loaded: </p>
+            <p class="alignright"><%= @statistics["load_count"] %></p>
+        </div>
+        <div class="box blue">
+            <p class="alignleft">Number of Views: </p>
+            <p class="alignright"><%= @statistics["play_count"] %></p>
+        </div>
+        <div class="box orange">
+            <p class="alignleft">Total Hours Watched:</p>
+            <p class="alignright"><%= '%.2f' % @statistics["hours_watched"] %></p>
+        </div>
+        <div class="box purple">
+            <p>Top 3 Cities of Viewers:</p>
+            <% @topThree.each do |item| %>
+                <%= item %>
+                <br>
+            <% end %>
+        </div>
     </div>
-    <div class="box blue">
-        <p class="alignleft">Number of Views: </p>
-        <p class="alignright"><%= @statistics["play_count"] %></p>
-    </div>
-    <div class="box orange">
-        <p class="alignleft">Total Hours Watched:</p>
-        <p class="alignright"><%= '%.2f' % @statistics["hours_watched"] %></p>
-    </div>
-    <div class="box purple">
-        <p>Top 3 Cities of Viewers:</p>
-        <% @topThree.each do |item| %>
-            <%= item %>
-            <br>
-        <% end %>
-    </div>
+    <h2>
 </body>
 </html>
