@@ -11,7 +11,23 @@
   <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
     <iframe allow="fullscreen" class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
     <h2><b><%= video_name %></b><h2>
-    <%-# Each Video -%>
+    <div class="box green">
+        <p class="alignleft">Times Played: </p>
+        <p class="alignright"><%= each_video_stats["play_count"] %></p>
+    </div>
+    <div class="box blue">
+        <p class="alignleft">Total Minutes Watched: </p>
+        <p class="alignright"><%= each_video_stats["hours_watched"] %></p>
+    </div>
+    <div class="box orange">
+        <p class="alignleft">Average Percentage of Video That Gets Viewed:</p>
+        <p class="alignright"><%= '%.2f' % each_video_stats["engagement"] %></p>
+    </div>
+    <div class="box purple">
+        <p class="alignleft">Number of Unique People Who Watched This Video:</p>
+        <p class="alignright"><%= '%.2f' % each_video_stats["visitors"] %></p>
+    </div>
+
     <% each_video_stats.each do |key, val| %>
         <h2>
         <% if "#{key}" == "play_count" %>
