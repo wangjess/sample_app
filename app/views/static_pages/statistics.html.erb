@@ -14,15 +14,16 @@
     <div class="stacky">
         <div class="box green smallbox">
             <p class="alignleft">Times Loaded: </p>
-            <p class="alignright"><%= @statistics["load_count"] %> loads</p>
+            <p class="alignright"><%= "&nbsp;#{@statistics["load_count"]}".html_safe %> loads</p>
         </div>
         <div class="box blue smallbox">
             <p class="alignleft">Number of Views:</p>
-            <p class="alignright"><%= @statistics["play_count"] %> views</p>
+            <p class="alignright"><%= "&nbsp;#{@statistics["play_count"]}".html_safe %> views</p>
         </div>
         <div class="box orange smallbox">
             <p class="alignleft">Total Hours Watched:</p>
-            <p class="alignright"><%= '%.2f' % @statistics["hours_watched"] %> hours</p>
+            <% formatted = '%.2f' % @statistics["hours_watched"] %>
+            <p class="alignright"><%= "&nbsp;#{formatted}".html_safe %> hours</p>
         </div>
         <br>
         <div class="box purple">

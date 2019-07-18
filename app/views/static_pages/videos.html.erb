@@ -15,19 +15,21 @@
     <div class="stacky">
         <div class="box grey smallbox">
             <p class="alignleft">Times Played: </p>
-            <p class="alignright"><%= each_video_stats["play_count"] %></p>
+            <p class="alignright"><%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %></p>
         </div>
         <div class="box grey smallbox">
             <p class="alignleft">Total Minutes Watched: </p>
-            <p class="alignright"><%= each_video_stats["hours_watched"] %></p>
+            <p class="alignright"><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %></p>
         </div>
         <div class="box grey smallbox">
             <p class="alignleft">Average Percentage of Video That Gets Viewed:</p>
-            <p class="alignright"><%= '%.2f' % each_video_stats["engagement"] %></p>
+            <% formatted = '%.2f' % each_video_stats["engagement"] %>
+            <p class="alignright"><%= "&nbsp;#{formatted}%".html_safe %></p>
         </div>
         <div class="box grey smallbox">
             <p class="alignleft">Number of Unique People Who Watched This Video:</p>
-            <p class="alignright"><%= '%.2f' % each_video_stats["visitors"] %></p>
+            <% formatted = '%.2f' % each_video_stats["visitors"] %>
+            <p class="alignright"><%= "&nbsp;#{formatted}".html_safe %></p>
         </div>
     </div>
     <br>
