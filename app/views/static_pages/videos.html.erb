@@ -22,17 +22,18 @@
             <p class="alignright"><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %></p>
         </div>
         <div class="box grey smallbox">
-            <p class="alignleft">Average Percentage of Video That Gets Viewed:</p>
-            <% formatted = '%.2f' % each_video_stats["engagement"] %>
-            <p class="alignright"><%= "&nbsp;#{formatted}%".html_safe %></p>
-            <%= react_component("Percentage", { percent: formatted}) %>
-        </div>
-        <div class="box grey smallbox">
             <p class="alignleft">Number of Unique People Who Watched This Video:</p>
             <% formatted = each_video_stats["visitors"] %>
             <p class="alignright"><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %></p>
         </div>
+        <div class="box grey smallbox">
+            <p class="alignleft">Average Percentage of Video That Gets Viewed:</p>
+            <% formatted = '%.2f' % each_video_stats["engagement"] %>
+            <p class="alignright"><%= "&nbsp;#{formatted}%".html_safe %></p>
+        </div>
     </div>
+    <p> Call REACT COMPONENT: <p>
+    <%= react_component("Percentage", { percent: formatted}) %>
     <br>
     <br>
   <% end %>
