@@ -1,10 +1,6 @@
 <% provide(:title, "Your Videos") %>
 <!DOCTYPE html>
 <html>
-<head>
-    <%-# videos.html.erb in Head tag below turbolinks -%>
-    <%= javascript_pack_tag 'application' %>
-</head>
 <body>
   <h1 style="color: black;"> Your Videos <h1>
   <h2>
@@ -29,6 +25,7 @@
             <p class="alignleft">Average Percentage of Video That Gets Viewed:</p>
             <% formatted = '%.2f' % each_video_stats["engagement"] %>
             <p class="alignright"><%= "&nbsp;#{formatted}%".html_safe %></p>
+            <%= react_component("Percentage", { percent: formatted}) %>
         </div>
         <div class="box grey smallbox">
             <p class="alignleft">Number of Unique People Who Watched This Video:</p>

@@ -6,6 +6,8 @@
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
     <%= csrf_meta_tags %>
+    <!-- application.html.erb in Head tag below turbolinks -->
+    <%= javascript_pack_tag 'application' %>
   </head>
   <body>
     <%= render 'layouts/header' %>
