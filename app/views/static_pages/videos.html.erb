@@ -29,8 +29,8 @@
         </div>
         <div class="box grey smallbox">
             <p class="alignleft">Number of Unique People Who Watched This Video:</p>
-            <% formatted = '%.2f' % each_video_stats["visitors"] %>
-            <p class="alignright"><%= "&nbsp;#{formatted}".html_safe %></p>
+            <% formatted = each_video_stats["visitors"] %>
+            <p class="alignright"><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %></p>
         </div>
     </div>
     <br>
