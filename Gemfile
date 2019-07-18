@@ -4,13 +4,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'http'
-gem 'will_paginate',           '3.1.7'
+gem 'will_paginate',           '3.1.7' # Use for /Users/ pagination
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'rails', '~> 5.2.3'
 gem 'bootstrap-sass', '3.3.7'
-gem 'bcrypt',         '3.1.12'
+gem 'bcrypt',         '3.1.12' # Use for hashing passwords
 gem 'jquery-rails'
-gem 'dotenv-rails'
+gem 'dotenv-rails' # Use for concealing Authentication Tokens 
+gem 'webpacker' # Allows us to use Javascritp pre-processor and webpack in our application
 gem 'react-rails'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
