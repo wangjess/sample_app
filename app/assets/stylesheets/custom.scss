@@ -262,7 +262,7 @@ section {
 
 /* make divs stack on top of each other */
 .stacky {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   justify-content: center;
 }
