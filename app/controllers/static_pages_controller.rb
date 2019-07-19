@@ -96,7 +96,8 @@ class StaticPagesController < ApplicationController
       # iterate through that events list for each video
       @hash.map do |h|
         if h["city"]
-          @cities.push(h["city"])
+          city_region = "#{h["city"]},&nbsp;#{h["region"]}"
+          @cities.push(city_region)
         end
       end
     end
