@@ -28,12 +28,12 @@
         </div>
         <div class="box grey smallbox">
             <p class="alignleft">Average Percentage of Video That Gets Viewed:</p>
-            <% formatted = '%.2f' % each_video_stats["engagement"] %>
-            <p class="alignright"><%= "&nbsp;#{formatted}%".html_safe %></p>
+            <% video_percent = '%.2f' % each_video_stats["engagement"] %>
+            <p class="alignright"><%= "&nbsp;#{video_percent}%".html_safe %></p>
         </div>
     </div>
     <p> Call REACT COMPONENT: <p>
-    <%= react_component("VideoPercent", { percent: formatted}) %>
+    <%= react_component("VideoPercent", { percent: video_percent}) %>
     <br>
     <br>
   <% end %>
