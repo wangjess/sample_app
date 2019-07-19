@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { CircularProgressbar } from 'react-circular-progressbar';
-import 'app/assets/stylesheets/styles.css';
+import '../../assets/stylesheets/styles.css';
 class Percentage extends React.Component {
   render () {
     console.log(this.props);
