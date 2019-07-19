@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { render } from "react-dom";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import '../../assets/stylesheets/styles.css';
 class VideoPercent extends React.Component {
@@ -14,3 +15,5 @@ class VideoPercent extends React.Component {
 }
 
 export default VideoPercent
+
+
