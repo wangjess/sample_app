@@ -20,6 +20,10 @@
             <p class="alignleft">Number of Views:</p>
             <p class="alignright"><%= "&nbsp;#{@statistics["play_count"]}".html_safe %> views</p>
         </div>
+        <div class="box red smallbox">
+            <p class="alignleft">Total Number of Videos:</p>
+            <p class="alignright"><%= "&nbsp;#{@statistics["number_of_videos"]}".html_safe %> videos</p>
+        </div>
         <div class="box orange smallbox">
             <p class="alignleft">Total Hours Watched:</p>
             <% formatted = '%.2f' % @statistics["hours_watched"] %>
