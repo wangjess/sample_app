@@ -95,8 +95,8 @@ class StaticPagesController < ApplicationController
       @hash = @result
       # iterate through that events list for each video
       @hash.map do |h|
-        if h["city"]
-          city_region = "#{h["city"]},&nbsp;#{h["region"]}"
+        if not h["city"].to_s.empty?
+          city_region = "#{h["city"]},&nbsp;#{h["region"]}".html_safe
           @cities.push(city_region)
         end
       end
@@ -112,6 +112,7 @@ class StaticPagesController < ApplicationController
     end
     @topThreeHash = Hash[@hashmap.sort_by { |k,v| -v }[0..2]]
     @topThree = @topThreeHash.keys
+    puts @topThree
   end
 
   def progress
