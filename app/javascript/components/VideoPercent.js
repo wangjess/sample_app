@@ -7,7 +7,7 @@ class VideoPercent extends React.Component {
     console.log(this.props.percent);
     return (
       <React.Fragment>
-        <CircularProgressbar value={this.props} text={`${this.props}%`} />
+        <CircularProgressbar value={this.props.percent} text={`${this.props.percent}%`} />
       </React.Fragment>
     );
   }
