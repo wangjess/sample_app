@@ -29,7 +29,9 @@
         <div class="box grey smallbox">
             <p class="alignleft">Average Percentage of Video That Gets Viewed:</p>
             <% video_percent = '%.2f' % each_video_stats["engagement"] %>
-            <%= react_component("VideoPercent", { percent: video_percent}) %>
+            <div class="video-percent-div" >
+                <%= react_component("VideoPercent", { percent: video_percent}) %>
+            </div>
         </div>
     </div>
     <br>

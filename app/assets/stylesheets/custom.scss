@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: 'Gotham-Bold';
-  src: url('../fonts/Gotham-Bold.ttf')
+  src: url('fonts/Gotham-Bold.ttf')
 }
 
 .gotham-bold {
@@ -235,6 +235,11 @@ section {
 .videos {
   width: auto;
   height: 150;
+}
+
+/* your videos page percent component size */
+.video-percent-div {
+  width: 150;
 }
 
 /* styling for statistics */
