@@ -2,7 +2,7 @@
   <div class="container">
     <%= link_to image_tag("logo_small.png"), "https://www.flowvideo.com", id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right gotham-bold">
+      <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <% if !is_admin? %>
             <li><%= link_to "Your Videos",  videos_path %></li>

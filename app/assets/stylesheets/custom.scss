@@ -1,17 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* font for website */
-
-@font-face {
-  font-family: 'Gotham-Bold';
-  src: url('../fonts/Gotham-Bold.ttf') format('truetype');
-}
-
-.gotham-bold {
-  font-family: 'Gotham-Bold';
-}
-
 /* background image */
 
 .splash {

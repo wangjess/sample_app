@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'dotenv-rails' # Use for concealing Authentication Tokens 
 gem 'webpacker' # Allows us to use Javascritp pre-processor and webpack in our application
 gem 'react-rails'
+gem "font-awesome-rails" # Fonts
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
 gem 'puma'
