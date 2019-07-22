@@ -1,19 +1,19 @@
 <header class="navbar navbar-fixed-top navbar-inverse" style="background-color: #202b3d;">
   <div class="container">
-    <%= link_to image_tag("logo_small.png"), "https://www.flowvideo.com", id: "logo" %>
+    <%= link_to image_tag("logo_small.png"), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <% if !is_admin? %>
-            <li><%= link_to "Your Videos",  videos_path %></li>
-            <li><%= link_to "Statistics",   statistics_path %></li>
-            <li><%= link_to "Progress",     progress_path %></li>
+            <li><%= link_to "YOUR VIDEOS",  videos_path %></li>
+            <li><%= link_to "STATISTICS",   statistics_path %></li>
+            <li><%= link_to "PROGRESS",     progress_path %></li>
           <% else is_admin? %> 
-            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to "USERS", users_path %></li>
           <% end %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                ACCOUNT <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", current_user %></li>

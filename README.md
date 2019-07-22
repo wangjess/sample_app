@@ -1,3 +1,5 @@
+[![Known Vulnerabilities](https://snyk.io//test/github/wangjess/sample_app/badge.svg?targetFile=package.json)](https://snyk.io//test/github/wangjess/sample_app?targetFile=package.json)
+
 # Ruby on Rails Tutorial sample application
 
 This is the sample application for

@@ -2,13 +2,30 @@
 @import "bootstrap";
 @import "font-awesome";
 
-/* fonts */
+/* custom fonts for website */
 
+@font-face {
+  font-family: 'Gotham-Bold';
+  src: url('/Gotham-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gotham-Book';
+  src: url('/Gotham-Book.ttf') format('truetype');
+}
+
+.gotham-bold {
+  font-family: 'Gotham-Bold';
+}
+
+.gotham-book {
+  font-family: 'Gotham-Book';
+}
 
 /* background image */
 
 .splash {
-  background-image: url("homepage.jpeg");
+  background-image: url("/data.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -34,12 +51,12 @@ $gray-medium-light: #eaeaea;
   @include box_sizing;
 }
 
-
-
 /* universal */
 
 body {
   padding-top: 60px;
+  font-family: 'Gotham-Book';
+  background-color:white;
 }
 
 section {
@@ -50,17 +67,28 @@ textarea {
   resize: vertical;
 }
 
-.center {
+/* used on home page */
+
+.bigboi {
   text-align: center;
+}
+
+.center {
+  display: inline-block;
+  margin-top: 20vh;
   h1 {
     margin-bottom: 10px;
   }
+  height: 40vh;
+  width: 60vh;
+  background-color: white;
 }
 
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  font-family: 'Gotham-Bold';
 }
 
 h1 {
@@ -83,7 +111,6 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
 
 /* header */
 
