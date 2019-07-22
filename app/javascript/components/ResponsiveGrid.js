@@ -1,10 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 class ResponsiveGrid extends React.Component {
-  render () {
+  render() {
     return (
-      <React.Fragment>
-      </React.Fragment>
+      <AutoResponsive ref="container" {...this.getAutoResponsiveProps()}>
+        {
+          arrayList.map(function(i) {
+            return <div onClick={this.clickItemHandle} className="item" style={this.state.styleList[i]}>{i}</div>;
+          }, this)
+        }
+      </AutoResponsive>
     );
   }
 }
