@@ -24,7 +24,7 @@
 /* background image */
 
 .splash {
-  background-image: url("homepage.jpeg");
+  background-image: url("/data.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -55,6 +55,7 @@ $gray-medium-light: #eaeaea;
 body {
   padding-top: 60px;
   font-family: 'Gotham-Book';
+  background-color:white;
 }
 
 section {
@@ -65,11 +66,20 @@ textarea {
   resize: vertical;
 }
 
-.center {
+/* used on home page */
+.container {
   text-align: center;
+}
+
+.center {
+  display: inline-block;
+  margin-top: 20vh;
   h1 {
     margin-bottom: 10px;
   }
+  height: 40vh;
+  width: 60vh;
+  background-color: white;
 }
 
 /* typography */
