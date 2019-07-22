@@ -1,15 +1,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* font for website */
+/* custom fonts for website */
 
 @font-face {
   font-family: 'Gotham-Bold';
   src: url('/Gotham-Bold.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Gotham-Book';
+  src: url('/Gotham-Book.ttf') format('truetype');
+}
+
 .gotham-bold {
   font-family: 'Gotham-Bold';
+}
+
+.gotham-book {
+  font-family: 'Gotham-Book';
 }
 
 /* background image */
@@ -41,12 +50,11 @@ $gray-medium-light: #eaeaea;
   @include box_sizing;
 }
 
-
-
 /* universal */
 
 body {
   padding-top: 60px;
+  font-family: 'Gotham-Book';
 }
 
 section {
