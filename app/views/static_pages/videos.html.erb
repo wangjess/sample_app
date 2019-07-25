@@ -18,32 +18,32 @@
   <div class="each_row_thing">
     <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
         <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
-        <div>
+        <div style="text-align: center; vertical-align: middle;">
             <div class="row">
-                <div style="float: left;">
+                <div style="float: left;" class="box grey shadow">
                     <iframe allow="fullscreen" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
                 </div>
                 <div class="horizontal-align col-xs-2">
-                    <div class="box grey smallbox">
+                    <div class="box grey smallbox shadow">
                         <p>Times Played: </p>
                         <p><%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %></p>
                     </div>
                 </div>
                 <div class="horizontal-align col-xs-2">
-                    <div class="box grey smallbox">
+                    <div class="box grey smallbox shadow">
                         <p>Total Minutes Watched: </p>
                         <p><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %></p>
                     </div>
                 </div>
                 <div class="horizontal-align col-xs-2">
-                    <div class="box grey smallbox">
+                    <div class="box grey smallbox shadow">
                         <p>Number of Unique People Who Watched This Video:</p>
                         <% formatted = each_video_stats["visitors"] %>
                         <p><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %></p>
                     </div>
                 </div>
                 <div class="horizontal-align col-xs-2">
-                    <div class="box grey smallbox">
+                    <div class="box grey smallbox shadow">
                         <p>Average Percentage of Video That Gets Viewed:</p>
                         <% video_percent = '%.2f' % each_video_stats["engagement"] %>
                         <div class="video-percent-div" >

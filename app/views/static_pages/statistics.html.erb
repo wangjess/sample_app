@@ -11,39 +11,39 @@
 
     <%-# Wistia Statistics -%>
     <p style="font-size: 1.5em; color: black;"><b>Wistia Statistics <b><p>
-    <div class="stats">
-        <div>
-            <div class="row">
-                <div class="box green smallbox" style="float: left;">
+    <div>
+        <div class="row">
+            <div class="horizontal-align col-xs-2">
+                <div class="box green smallbox shadow">
                     <p>Times Loaded: </p>
                     <p><%= "&nbsp;#{@statistics["load_count"]}".html_safe %> loads</p>
                 </div>
-                <div class="horizontal-align col-xs-2" class="box blue smallbox">
-                    <div class="box blue smallbox">
-                        <p>Number of Views:</p>
-                        <p><%= "&nbsp;#{@statistics["play_count"]}".html_safe %> views</p>
-                    </div>
+            </div>
+            <div class="horizontal-align col-xs-2">
+                <div class="box blue smallbox shadow">
+                    <p>Number of Views:</p>
+                    <p><%= "&nbsp;#{@statistics["play_count"]}".html_safe %> views</p>
                 </div>
-                <div class="horizontal-align col-xs-2">
-                    <div class="box red smallbox">
-                        <p>Total Number of Videos:</p>
-                        <p><%= "&nbsp;#{@statistics["number_of_videos"]}".html_safe %> videos</p>
-                    </div>
+            </div>
+            <div class="horizontal-align col-xs-2">
+                <div class="box red smallbox shadow">
+                    <p>Total Number of Videos:</p>
+                    <p><%= "&nbsp;#{@statistics["number_of_videos"]}".html_safe %> videos</p>
                 </div>
-                <div class="horizontal-align col-xs-2">
-                    <div class="box orange smallbox">
-                        <p>Total Hours Watched:</p>
-                        <% formatted = '%.2f' % @statistics["hours_watched"] %>
-                        <p><%= "&nbsp;#{formatted}".html_safe %> hours</p>
-                    </div>
+            </div>
+            <div class="horizontal-align col-xs-2">
+                <div class="box orange smallbox shadow">
+                    <p>Total Hours Watched:</p>
+                    <% formatted = '%.2f' % @statistics["hours_watched"] %>
+                    <p><%= "&nbsp;#{formatted}".html_safe %> hours</p>
                 </div>
-                <div class="horizontal-align col-xs-2">
-                    <div class="box purple rectangularbox">
-                        <p>Top 3 Cities of Viewers:</p>
-                        <p>1. <%= @topThree[0] %></p>
-                        <p>2. <%= @topThree[1] %></p>
-                        <p>3. <%= @topThree[2] %></p>
-                    </div>
+            </div>
+            <div class="horizontal-align col-xs-2">
+                <div class="box purple rectangularbox shadow">
+                    <p>Top 3 Cities of Viewers:</p>
+                    <p>1. <%= @topThree[0] %></p>
+                    <p>2. <%= @topThree[1] %></p>
+                    <p>3. <%= @topThree[2] %></p>
                 </div>
             </div>
         </div>

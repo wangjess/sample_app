@@ -34,7 +34,6 @@
   overflow: hidden;
 }
 
-/* */
 
 /* stack divs vertically on mobile */
 
@@ -281,12 +280,12 @@ input {
   clear: both;
 }
 .rectangularbox {
-  height: 250px;
-  width: 200px;
+  height: 167px;
+  width: 167px;
 }
 .smallbox {
-  height: 150px;
-  width: 150px;
+  height: 167px;
+  width: 167px;
 }
 .green{
   background-color:green;
@@ -311,6 +310,9 @@ input {
 }
 .alignright {
 	float: right;
+}
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* make divs stack on top of each other */
