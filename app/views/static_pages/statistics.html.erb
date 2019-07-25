@@ -6,36 +6,49 @@
     <h2>
         This page shows your total culmination of all your video statistics over time! (Whether 1 video or more!)
         <br>
-        This culminates all Facebook and Wistia data. Other data can be integrated upon client request.
+        This culminates all Wistia data. Other data can be integrated upon client request.
     <h2>
 
     <%-# Wistia Statistics -%>
     <p style="font-size: 1.5em; color: black;"><b>Wistia Statistics <b><p>
-    <div class="stacky">
-        <div class="box green smallbox">
-            <p class="alignleft">Times Loaded: </p>
-            <p class="alignright"><%= "&nbsp;#{@statistics["load_count"]}".html_safe %> loads</p>
-        </div>
-        <div class="box blue smallbox">
-            <p class="alignleft">Number of Views:</p>
-            <p class="alignright"><%= "&nbsp;#{@statistics["play_count"]}".html_safe %> views</p>
-        </div>
-        <div class="box red smallbox">
-            <p class="alignleft">Total Number of Videos:</p>
-            <p class="alignright"><%= "&nbsp;#{@statistics["number_of_videos"]}".html_safe %> videos</p>
-        </div>
-        <div class="box orange smallbox">
-            <p class="alignleft">Total Hours Watched:</p>
-            <% formatted = '%.2f' % @statistics["hours_watched"] %>
-            <p class="alignright"><%= "&nbsp;#{formatted}".html_safe %> hours</p>
-        </div>
-        <div class="box purple">
-            <p>Top 3 Cities of Viewers:</p>
-            <p>1. <%= @topThree[0] %></p>
-            <p>2. <%= @topThree[1] %></p>
-            <p>3. <%= @topThree[2] %></p>
+    <div class="stats">
+        <div>
+            <div class="row">
+                <div class="box green smallbox" style="float: left;">
+                    <p>Times Loaded: </p>
+                    <p><%= "&nbsp;#{@statistics["load_count"]}".html_safe %> loads</p>
+                </div>
+                <div class="horizontal-align col-xs-2" class="box blue smallbox">
+                    <div class="box blue smallbox">
+                        <p>Number of Views:</p>
+                        <p><%= "&nbsp;#{@statistics["play_count"]}".html_safe %> views</p>
+                    </div>
+                </div>
+                <div class="horizontal-align col-xs-2">
+                    <div class="box red smallbox">
+                        <p>Total Number of Videos:</p>
+                        <p><%= "&nbsp;#{@statistics["number_of_videos"]}".html_safe %> videos</p>
+                    </div>
+                </div>
+                <div class="horizontal-align col-xs-2">
+                    <div class="box orange smallbox">
+                        <p>Total Hours Watched:</p>
+                        <% formatted = '%.2f' % @statistics["hours_watched"] %>
+                        <p><%= "&nbsp;#{formatted}".html_safe %> hours</p>
+                    </div>
+                </div>
+                <div class="horizontal-align col-xs-2">
+                    <div class="box purple rectangularbox">
+                        <p>Top 3 Cities of Viewers:</p>
+                        <p>1. <%= @topThree[0] %></p>
+                        <p>2. <%= @topThree[1] %></p>
+                        <p>3. <%= @topThree[2] %></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
     <%-# Google Map with Views Locations -%>
 </body>
 </html>

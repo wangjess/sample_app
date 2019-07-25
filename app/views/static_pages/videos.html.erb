@@ -4,38 +4,56 @@
 <body>
   <h1 style="color: black;"> Your Videos <h1>
   <h2>
-      All of your videos are here, and underneath each video is its Wistia statistics.
+      All of your videos and their Wistia statistics are here.
+      <br>
+      On the left hand side is the video, followed by its statistics! Happy viewing!
   <h2>
 
+    <div class="box grey smallbox">
+        <p>testserfasdf<p>
+        <p>123123<p>
+    </div>
+
   <%-# For Loop That Iterates Through Videos, Embeds Video & Prints Individual Statistics -%>
-  <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
-    <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
-    <iframe allow="fullscreen" class="videos" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
-    <p style="color: black;">Statistics:<p>
-    <div class="stacky">
-        <div class="box grey smallbox">
-            <p class="alignleft">Times Played: </p>
-            <p class="alignright"><%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %></p>
-        </div>
-        <div class="box grey smallbox">
-            <p class="alignleft">Total Minutes Watched: </p>
-            <p class="alignright"><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %></p>
-        </div>
-        <div class="box grey smallbox">
-            <p class="alignleft">Number of Unique People Who Watched This Video:</p>
-            <% formatted = each_video_stats["visitors"] %>
-            <p class="alignright"><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %></p>
-        </div>
-        <div class="box grey smallbox">
-            <p class="alignleft">Average Percentage of Video That Gets Viewed:</p>
-            <% video_percent = '%.2f' % each_video_stats["engagement"] %>
-            <div class="video-percent-div" >
-                <%= react_component("VideoPercent", { percent: video_percent}) %>
+  <div class="each_row_thing">
+    <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
+        <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
+        <div>
+            <div class="row">
+                <div style="float: left;">
+                    <iframe allow="fullscreen" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
+                </div>
+                <div class="horizontal-align col-xs-2">
+                    <div class="box grey smallbox">
+                        <p>Times Played: </p>
+                        <p><%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %></p>
+                    </div>
+                </div>
+                <div class="horizontal-align col-xs-2">
+                    <div class="box grey smallbox">
+                        <p>Total Minutes Watched: </p>
+                        <p><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %></p>
+                    </div>
+                </div>
+                <div class="horizontal-align col-xs-2">
+                    <div class="box grey smallbox">
+                        <p>Number of Unique People Who Watched This Video:</p>
+                        <% formatted = each_video_stats["visitors"] %>
+                        <p><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %></p>
+                    </div>
+                </div>
+                <div class="horizontal-align col-xs-2">
+                    <div class="box grey smallbox">
+                        <p>Average Percentage of Video That Gets Viewed:</p>
+                        <% video_percent = '%.2f' % each_video_stats["engagement"] %>
+                        <div class="video-percent-div" >
+                            <%= react_component("VideoPercent", { percent: video_percent}) %>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <br>
-    <br>
-  <% end %>
+    <% end %>
+   </div>
 </body>
 </html>

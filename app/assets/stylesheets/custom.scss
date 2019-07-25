@@ -23,6 +23,7 @@
 }
 
 /* background image */
+
 .splash {
   background-image: url("/data.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -31,6 +32,20 @@
   background-size: cover;
   height: 100%;
   overflow: hidden;
+}
+
+/* */
+
+/* stack divs vertically on mobile */
+
+@media all and (max-width:800px) // 800px for tablets and phones.
+{
+    .each_row_thing
+    {
+        display: block; 
+        float: none; 
+        width: 100%;
+    }
 }
 
 /* mixins, variables, etc. */
@@ -247,15 +262,8 @@ input {
   }
 }
 
-/* your videos styling */
-section {
-  height: calc(100vh - 60px);
-  top: 50px;
-}
-
 .videos {
-  width: auto;
-  height: 150;
+  float: left;
 }
 
 /* your videos page percent component size */
@@ -268,13 +276,17 @@ section {
   margin: 0 auto;
   color: white;
   padding: 0.3em 0.3em; /* inside div padding */
-  border-radius: 10px;
+  border-radius: 10px; /* rounded corner */
   margin-bottom: 6px; /* or whatever */
   clear: both;
 }
+.rectangularbox {
+  height: 250px;
+  width: 200px;
+}
 .smallbox {
-  line-height: 40px;
-  height: 40px;
+  height: 150px;
+  width: 150px;
 }
 .green{
   background-color:green;
@@ -302,10 +314,16 @@ section {
 }
 
 /* make divs stack on top of each other */
-.stacky {
+
+.stats {
   display: inline-block;
   flex-direction: column;
   flex-grow: 0; /* determines space */
   justify-content: center;
   clear: both;
+}
+
+/* each_row_thing */
+.each_row_thing {
+  color: black;
 }
