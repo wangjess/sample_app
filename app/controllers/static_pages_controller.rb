@@ -78,6 +78,8 @@ class StaticPagesController < ApplicationController
 
     # statistics
     @statistics = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
+    puts "STATISTICS"
+    puts @statistics
 
     # obtain city statistics for all videos
     request = "https://api.wistia.com/v1/projects/#{project_id}.json?api_password=#{ENV['AUTH_TOKEN']}"

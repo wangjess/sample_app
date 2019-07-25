@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
           redirect_to users
         else
           redirect_to videos_url
-        redirect_back_or user
+        end
       else
         message  = "Account not activated. "
         message += "Check your email for the activation link."
