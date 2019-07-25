@@ -9,6 +9,7 @@
     "react": "^16.8.6",
     "react-circular-progressbar": "^2.0.1",
     "react-dom": "^16.8.6",
+    "react-virtualized": "^9.21.1",
     "react_ujs": "^2.5.0"
   },
   "devDependencies": {
