@@ -9,11 +9,6 @@
       On the left hand side is the video, followed by its statistics! Happy viewing!
   <h2>
 
-    <div class="box grey smallbox">
-        <p>testserfasdf<p>
-        <p>123123<p>
-    </div>
-
   <%-# For Loop That Iterates Through Videos, Embeds Video & Prints Individual Statistics -%>
   <div class="each_row_thing">
     <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
