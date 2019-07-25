@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         if user.admin?
-          redirect_to users
+          redirect_to users_url
         else
           redirect_to videos_url
         end
