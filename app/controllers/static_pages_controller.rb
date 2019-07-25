@@ -76,7 +76,7 @@ class StaticPagesController < ApplicationController
       return
     end
 
-    # statisticsd
+    # statistics
     @statistics = JSON.parse(HTTP.get(request).body) # didnt get body to handle errors
 
     # obtain city statistics for all videos
