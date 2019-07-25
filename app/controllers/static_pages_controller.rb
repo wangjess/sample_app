@@ -71,7 +71,7 @@ class StaticPagesController < ApplicationController
 
     # handle errors (4xx & 5xx)
     if @statistics.status.client_error? || @statistics.status.server_error?
-      flash[:info] = "Looks like you have no videos!"
+      flash[:info] = "We are currently verifying and setting up your account. Videos and statistics will be available after we verify you!"
       redirect_to root_path
       return
     end
