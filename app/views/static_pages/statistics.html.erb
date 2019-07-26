@@ -16,7 +16,7 @@
         <%-# Icon Legend -%>
         <div class="" style="color:black;">
             <div class="row">
-                <div class="horizontal-align col-xs-2">
+                <div class="horizontal-align col-xs-3">
                     <i class="fas fa-spinner fa-5x" style="padding-bottom: 10px;"></i>
                     <br>
                     Times Loaded
@@ -36,7 +36,7 @@
                     <br>
                     Total Hours Watched
                 </div>
-                <div class="horizontal-align col-xs-2">
+                <div class="horizontal-align col-xs-3">
                     <i class="fas fa-city fa-5x" style="padding-bottom: 10px;"></i>
                     <br>
                     Top 3 Cities of Viewers
@@ -51,7 +51,7 @@
         <div class="each_row_thing">
             <div>
                 <div class="row">
-                    <div class="horizontal-align col-xs-2">
+                    <div class="horizontal-align col-xs-3">
                         <div class="box green smallbox shadow">
                             <i class="fas fa-spinner fa-3x" style="padding-bottom: 10px;"></i>
                             <p><%= "&nbsp;#{@statistics["load_count"]}".html_safe %> loads</p>
@@ -76,7 +76,7 @@
                             <p><%= "&nbsp;#{formatted}".html_safe %> hours</p>
                         </div>
                     </div>
-                    <div class="horizontal-align col-xs-2">
+                    <div class="horizontal-align col-xs-3">
                         <div class="box purple rectangularbox shadow">
                             <i class="fas fa-city fa-3x" style="padding-bottom: 10px;"></i>
                             <p>1. <%= @topThree[0] %></p>
