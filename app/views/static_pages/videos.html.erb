@@ -1,54 +1,84 @@
 <% provide(:title, "Your Videos") %>
 <!DOCTYPE html>
 <html>
-<body>
-  <h1 style="color: black;"> Your Videos <h1>
-  <h2>
-      All of your videos and their Wistia statistics are here.
-      <br>
-      On the left hand side is the video, followed by its statistics! Happy viewing!
-  <h2>
+    <head>
+        <!-- Place your kit's code here -->
+        <script src="https://kit.fontawesome.com/f85f1b6612.js"></script>
+    </head>
+    <body>
+    <h1 style="color: black;"> Your Videos <h1>
+    <h2>
+        All of your videos and their Wistia statistics are here.
+        <br>
+        On the left hand side is the video, followed by its statistics!
+        Here's a guide for what each statistic means. Happy viewing!
+    <h2>
 
-  <%-# For Loop That Iterates Through Videos, Embeds Video & Prints Individual Statistics -%>
-  <div class="each_row_thing">
-    <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
-        <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
-        <div style="text-align: center; vertical-align: middle;">
-            <div class="row">
-                <div style="float: left;" class="box grey shadow">
-                    <iframe allow="fullscreen" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
-                </div>
-                <div class="horizontal-align col-xs-2">
-                    <div class="box grey smallbox shadow">
-                        <p>Times Played: </p>
-                        <p><%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %></p>
+    <div class="" style="color:black;">
+        <div class="row">
+            <div class="horizontal-align col-xs-2">
+                <i class="far fa-play-circle fa-5x" style="padding-bottom: 10px;"></i>
+                <br>
+                Times Played
+            </div>
+            <div class="horizontal-align col-xs-2">
+                <i class="far fa-clock fa-5x" style="padding-bottom: 10px;"></i>
+                <br>
+                Total Minutes Watched
+            </div>
+            <div class="horizontal-align col-xs-2">
+                <i class="fas fa-users fa-5x" style="padding-bottom: 10px;"></i>
+                <br>
+                Number of Unique People Who Watched This Video
+            </div>
+            <div class="horizontal-align col-xs-2">
+                <i class="fas fa-percent fa-5x" style="padding-bottom: 10px;"></i>
+                <br>
+                Average Percent of Video That Gets Viewed
+            </div>
+        </div>
+    </div>
+
+    <%-# For Loop That Iterates Through Videos, Embeds Video & Prints Individual Statistics -%>
+    <div class="each_row_thing">
+        <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
+            <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
+            <div style="text-align: center; vertical-align: middle;">
+                <div class="row">
+                    <div style="float: left;" class="box grey shadow">
+                        <iframe allow="fullscreen" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
                     </div>
-                </div>
-                <div class="horizontal-align col-xs-2">
-                    <div class="box grey smallbox shadow">
-                        <p>Total Minutes Watched: </p>
-                        <p><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %></p>
+                    <div class="horizontal-align col-xs-2">
+                        <div class="box grey smallbox shadow">
+                            <i class="far fa-play-circle fa-3x"></i>
+                            <p><%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %></p>
+                        </div>
                     </div>
-                </div>
-                <div class="horizontal-align col-xs-2">
-                    <div class="box grey smallbox shadow">
-                        <p>Number of Unique People Who Watched This Video:</p>
-                        <% formatted = each_video_stats["visitors"] %>
-                        <p><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %></p>
+                    <div class="horizontal-align col-xs-2">
+                        <div class="box grey smallbox shadow">
+                            <i class="fas fa-clock fa-3x"></i>
+                            <p><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %></p>
+                        </div>
                     </div>
-                </div>
-                <div class="horizontal-align col-xs-2">
-                    <div class="box grey smallbox shadow">
-                        <p>Average Percentage of Video That Gets Viewed:</p>
-                        <% video_percent = '%.2f' % each_video_stats["engagement"] %>
-                        <div class="video-percent-div" >
-                            <%= react_component("VideoPercent", { percent: video_percent}) %>
+                    <div class="horizontal-align col-xs-2">
+                        <div class="box grey smallbox shadow">
+                            <i class="fas fa-users fa-3x"></i>
+                            <% formatted = each_video_stats["visitors"] %>
+                            <p><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %></p>
+                        </div>
+                    </div>
+                    <div class="horizontal-align col-xs-2">
+                        <div class="box grey smallbox shadow">
+                            <i class="fas fa-percent fa-3x"></i>
+                            <% video_percent = '%.2f' % each_video_stats["engagement"] %>
+                            <div class="video-percent-div" >
+                                <%= react_component("VideoPercent", { percent: video_percent}) %>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <% end %>
-   </div>
-</body>
+        <% end %>
+    </div>
+    </body>
 </html>
