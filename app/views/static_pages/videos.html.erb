@@ -11,9 +11,10 @@
         All of your videos and their Wistia statistics are here.
         <br>
         On the left hand side is the video, followed by its statistics!
-        Here's a guide for what each statistic means. Happy viewing!
+        Here's an icon guide to understand your statistics. Happy viewing!
     <h2>
 
+    <%-# Icon Legend -%>
     <div class="" style="color:black;">
         <div class="row">
             <div class="horizontal-align col-xs-2">
@@ -38,9 +39,11 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
 
     <%-# For Loop That Iterates Through Videos, Embeds Video & Prints Individual Statistics -%>
-    <div class="each_row_thing">
+    <div class="each_row_thing" style="padding-bottom: 15px;">
         <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
             <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
             <div style="text-align: center; vertical-align: middle;">
@@ -78,6 +81,8 @@
                     </div>
                 </div>
             </div>
+            <br>
+            <br>
         <% end %>
     </div>
     </body>
