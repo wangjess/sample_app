@@ -287,6 +287,10 @@ input {
   height: 167px;
   width: 167px;
 }
+.vertical_align {
+  line-height: 167px;
+  word-break: break-all;
+}
 .green{
   background-color:green;
 }
@@ -313,16 +317,6 @@ input {
 }
 .shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-/* make divs stack on top of each other */
-
-.stats {
-  display: inline-block;
-  flex-direction: column;
-  flex-grow: 0; /* determines space */
-  justify-content: center;
-  clear: both;
 }
 
 /* each_row_thing */

@@ -51,33 +51,33 @@
         <div class="each_row_thing">
             <div>
                 <div class="row">
-                    <div class="horizontal-align col-xs-3">
+                    <div class="horizontal-align col-xs-3 vertical_align">
                         <div class="box green smallbox shadow">
                             <i class="fas fa-spinner fa-3x" style="padding-bottom: 10px;"></i>
                             <p><%= "&nbsp;#{@statistics["load_count"]}".html_safe %> loads</p>
                         </div>
                     </div>
-                    <div class="horizontal-align col-xs-2">
+                    <div class="horizontal-align col-xs-2 vertical_align">
                         <div class="box blue smallbox shadow">
                             <i class="far fa-play-circle fa-3x" style="padding-bottom: 10px;"></i>
                             <p><%= "&nbsp;#{@statistics["play_count"]}".html_safe %> views</p>
                         </div>
                     </div>
                     <div class="horizontal-align col-xs-2">
-                        <div class="box red smallbox shadow">
+                        <div class="box red smallbox shadow vertical_align">
                             <i class="fas fa-sort-numeric-up-alt fa-3x" style="padding-bottom: 10px;"></i>
                             <p><%= "&nbsp;#{@statistics["number_of_videos"]}".html_safe %> videos</p>
                         </div>
                     </div>
                     <div class="horizontal-align col-xs-2">
-                        <div class="box orange smallbox shadow">
+                        <div class="box orange smallbox shadow vertical_align">
                             <i class="far fa-clock fa-3x" style="padding-bottom: 10px;"></i>
                             <% formatted = '%.2f' % @statistics["hours_watched"] %>
                             <p><%= "&nbsp;#{formatted}".html_safe %> hours</p>
                         </div>
                     </div>
                     <div class="horizontal-align col-xs-3">
-                        <div class="box purple rectangularbox shadow">
+                        <div class="box purple smallbox shadow vertical_align">
                             <i class="fas fa-city fa-3x" style="padding-bottom: 10px;"></i>
                             <p>1. <%= @topThree[0] %></p>
                             <p>2. <%= @topThree[1] %></p>
