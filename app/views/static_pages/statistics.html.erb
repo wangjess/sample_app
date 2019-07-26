@@ -49,13 +49,13 @@
         <div class="each_row_thing">
             <div class="row">
                 <div class="horizontal-align col-xs-3 vertical_align">
-                    <div class="box blue smallbox shadow">
+                    <div class="box blue smallbox shadow vertical_align">
                         <i class="far fa-play-circle fa-3x" style="padding-bottom: 10px;"></i>
                         <p><%= "&nbsp;#{@statistics["play_count"]}".html_safe %> plays</p>
                     </div>
                 </div>
                 <div class="horizontal-align col-xs-2 vertical_align">
-                    <div class="box orange smallbox shadow">
+                    <div class="box orange smallbox shadow vertical_align">
                         <i class="far fa-clock fa-3x" style="padding-bottom: 10px;"></i>
                         <% formatted = '%.2f' % @statistics["hours_watched"] %>
                         <p><%= "&nbsp;#{formatted}".html_safe %> hours</p>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
                 <div class="horizontal-align col-xs-3 vertical_align">
-                    <div class="box purple smallbox shadow">
+                    <div class="box purple smallbox shadow vertical_align">
                         <i class="fas fa-city fa-3x" style="padding-bottom: 10px;"></i>
                         <p>1. <%= @topThree[0] %></p>
                         <p>2. <%= @topThree[1] %></p>
