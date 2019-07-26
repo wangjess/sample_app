@@ -52,31 +52,29 @@
                         <iframe allow="fullscreen" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
                     </div>
                     <div class="horizontal-align col-xs-2">
-                        <div class="box grey smallbox shadow">
+                        <div class="box blue smallbox shadow vertical_align">
                             <i class="far fa-play-circle fa-3x"></i>
-                            <p><%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %></p>
+                            <p><%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %> plays</p>
                         </div>
                     </div>
                     <div class="horizontal-align col-xs-2">
-                        <div class="box grey smallbox shadow">
-                            <i class="fas fa-clock fa-3x"></i>
-                            <p><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %></p>
+                        <div class="box orange smallbox shadow vertical_align">
+                        <i class="far fa-clock fa-3x"></i>
+                        <p><%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %> minutes</p>
                         </div>
                     </div>
                     <div class="horizontal-align col-xs-2">
-                        <div class="box grey smallbox shadow">
+                        <div class="box green smallbox shadow vertical_align">
                             <i class="fas fa-users fa-3x"></i>
                             <% formatted = each_video_stats["visitors"] %>
-                            <p><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %></p>
+                            <p><%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %> people</p>
                         </div>
                     </div>
                     <div class="horizontal-align col-xs-2">
-                        <div class="box grey smallbox shadow">
+                        <div class="box red smallbox shadow vertical_align">
                             <i class="fas fa-percent fa-3x"></i>
                             <% video_percent = '%.2f' % each_video_stats["engagement"] %>
-                            <div class="video-percent-div" >
-                                <%= react_component("VideoPercent", { percent: video_percent}) %>
-                            </div>
+                            <p><%= "&nbsp;#{video_percent}".html_safe %></p>
                         </div>
                     </div>
                 </div>

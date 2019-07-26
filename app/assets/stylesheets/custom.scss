@@ -287,9 +287,10 @@ input {
   height: 167px;
   width: 167px;
 }
+/* aligns multiple lines of text in middle of div blocks */
 .vertical_align {
-  line-height: 167px;
-  word-break: break-all;
+  display: table-cell;
+  vertical-align: middle;
 }
 .green{
   background-color:green;
