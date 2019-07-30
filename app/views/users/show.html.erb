@@ -1,6 +1,5 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
@@ -18,16 +17,15 @@
         <br>
         <% if is_admin? %>
           <% if !@user.admin %>
-                <%= form_for(@user) do |f| %>
+            <%= form_for(@user) do |f| %>
 
-                  <%= f.label :wistia_project_id %>
-                  <%= f.text_field :wistia_project_id, class: 'form-control' %>
-                  
-                  <%= f.submit "Save", :form_class => "form-control" %>
-                <% end %>
+              <%= f.label :wistia_project_id %>
+              <%= f.text_field :wistia_project_id, class: 'form-control' %>
+              
+              <%= f.submit "Save", :form_class => "form-control" %>
+            <% end %>
           <% end %>
         <% end %>
       </h1>
     </section>
-  </aside>
 </div>
