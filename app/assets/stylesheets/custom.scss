@@ -287,6 +287,10 @@ input {
   height: 167px;
   width: 167px;
 }
+.longbox {
+  width: 100%;
+  height: 167px;
+}
 /* aligns multiple lines of text in middle of div blocks */
 .vertical_align {
   display: table-cell;
@@ -326,4 +330,9 @@ input {
 /* each_row_thing */
 .each_row_thing {
   color: black;
+}
+
+/* custom gradient CSS */
+.gradient {
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, transparent), color-stop(50%,#30cfd0), color-stop(100%,330867)); /* Chrome, Safari4+ */
 }
