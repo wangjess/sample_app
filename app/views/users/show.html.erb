@@ -18,8 +18,7 @@
         <br>
         <% if is_admin? %>
           <% if !@user.admin %>
-            <div class="row">
-              <div class="col-md-6 col-md-offset-3">
+              <div>
                 <%= form_for(@user) do |f| %>
 
                   <%= f.label :wistia_project_id %>
@@ -28,7 +27,6 @@
                   <%= f.submit "Save", :form_class => "form-control" %>
                 <% end %>
               </div>
-            </div>        
           <% end %>
         <% end %>
       </h1>
