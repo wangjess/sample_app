@@ -54,7 +54,7 @@
     <%-# For Loop That Iterates Through Videos, Embeds Video & Prints Individual Statistics -%>
     <div class="each_row_thing" style="padding-bottom: 15px;">
         <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
-            <div class="box shadow" style="border: 1px solid black; padding-bottom: 10px;" >
+            <div class="box shadow" style="padding-bottom: 10px; background-color: white;" >
                 <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
                 <div style="text-align: center; vertical-align: middle; display: flex; justify-content: center;">
                     <div class="row">
