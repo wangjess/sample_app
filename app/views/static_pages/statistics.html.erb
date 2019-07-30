@@ -15,8 +15,8 @@
 
         <%-# Icon Legend -%>
         <%-# Wistia Statistics -%>
-        <p style="font-size: 1.5em; color: black;"><b>Wistia Statistics <b><p>
-        <div class="box gradient" style="color: white;">
+        <div class="box shadow" style="color: black; border: 1px solid black;">
+            <p style="font-size: 1.5em; color: black;"><b>Wistia Statistics <b><p>
             <div class="row">
                 <div class="horizontal-align col-xs-3">
                     <i class="far fa-play-circle fa-5x" style="padding-bottom: 10px;"></i>
@@ -37,7 +37,7 @@
                     <p>Total Number of Videos</p>
                     <%= "&nbsp;#{@statistics["number_of_videos"]}".html_safe %> videos
                 </div>
-                <div class="horizontal-align col-xs-3">
+                <div class="horizontal-align col-xs-3" style="padding-bottom: 10px;">
                     <i class="fas fa-city fa-5x" style="padding-bottom: 10px;"></i>
                     <br>
                     <p>Top 3 Cities of Viewers</p>
