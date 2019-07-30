@@ -4,6 +4,6 @@
   <% if current_user.admin? && !current_user?(user) %>
   <br>
     <%= link_to "delete", user, style: "color: red;", method: :delete,
-                                data: { confirm: "You sure?"} %>
+                                data: { confirm: "Are you sure you want to delete this user? Action cannot be undone."} %>
   <% end %>
 </li>
