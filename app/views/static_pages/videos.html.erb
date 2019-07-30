@@ -56,7 +56,7 @@
         <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
             <div class="box shadow" style="border: 1px solid black; padding-bottom: 10px;" >
                 <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
-                <div style="text-align: center; vertical-align: middle;">
+                <div style="text-align: center; vertical-align: middle; display: flex; justify-content: center;">
                     <div class="row">
                         <div style="float:left;" class="box">
                             <div class="horizontal-align col-xs-2">
