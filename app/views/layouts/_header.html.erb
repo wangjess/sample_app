@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <% if !is_admin? %>
-            <li><%= link_to "YOUR VIDEOS",  videos_path %></li>
+            <li style="font-weight: bold; size: 20px;"><%= link_to "YOUR VIDEOS",  videos_path %></li>
             <li><%= link_to "STATISTICS",   statistics_path %></li>
             <li><%= link_to "PROGRESS",     progress_path %></li>
           <% else is_admin? %> 
