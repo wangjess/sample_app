@@ -24,6 +24,13 @@
                 Times Played
                 </span>
             </div>
+            <div class="horizontal-align col-xs-2">
+                <span style="color: floworange;">
+                <i class="fas fa-percent fa-5x" style="padding-bottom: 10px;"></i>
+                <br>
+                Play Rate
+                </span>
+            </div>
             <div class="horizontal-align col-xs-3">
                 <span style="color: orange;">
                 <i class="far fa-clock fa-5x" style="padding-bottom: 10px;"></i>
@@ -40,9 +47,9 @@
             </div>
             <div class="horizontal-align col-xs-4">
                 <span style="color: red;">
-                <i class="fas fa-percent fa-5x" style="padding-bottom: 10px;"></i>
+                <i class="far fa-eye fa-5x"style="padding-bottom: 10px;"></i>
                 <br>
-                Average Percent of Video That Gets Viewed (From Start to End)
+                Average Percent of Video That Gets Viewed
                 </span>
             </div>
         </div>
@@ -76,6 +83,19 @@
                         </div>
                         <div class="horizontal-align col-xs-2">
                             <div class="box smallbox vertical_align">
+                                <span style="color: black;">
+                                    <i class="fas fa-percent fa-5x"></i>
+                                    <br>
+                                    <br>
+                                </span>
+                                <% play_rate = '%.2f' % each_video_stats["play_rate"] %>
+                                <div style="color: black;">
+                                    <%= "&nbsp;#{play_rate}".html_safe %>% play rate
+                                </div>
+                            </div>
+                        </div>
+                        <div class="horizontal-align col-xs-2">
+                            <div class="box smallbox vertical_align">
                                 <span style="color: orange;">
                                     <i class="far fa-clock fa-5x"></i>
                                     <br>
@@ -102,7 +122,7 @@
                         <div class="horizontal-align col-xs-2">
                             <div class="box smallbox vertical_align">
                                 <span style="color: red;">
-                                    <i class="fas fa-percent fa-5x"></i>
+                                    <i class="far fa-eye fa-5x"></i>
                                     <br>
                                     <br>
                                 </span>
