@@ -23,35 +23,45 @@
                 <span style="color: #F18A65;">
                 <i class="far fa-play-circle fa-5x" style="padding-bottom: 10px;"></i>
                 <br>
-                Times Played
+                <div style="color: white;">
+                    Times Played
+                </div>
                 </span>
             </div>
             <div class="col-xs-2 col-half-offset" id="p2">
                 <span style="color: #F18A65;">
                 <i class="fas fa-percent fa-5x" style="padding-bottom: 10px;"></i>
                 <br>
-                Play Rate
+                <div style="color: white;">
+                    Play Rate
+                </div>
                 </span>
             </div>
             <div class="col-xs-2 col-half-offset" id="p3">
                 <span style="color: #F18A65;">
                 <i class="far fa-clock fa-5x" style="padding-bottom: 10px;"></i>
                 <br>
-                Total Minutes Watched
+                <div style="color: white;">
+                    Total Minutes Watched
+                </div>
                 </span>
             </div>
             <div class="col-xs-2 col-half-offset" id="p4">
                 <span style="color: #F18A65;">
                 <i class="fas fa-users fa-5x" style="padding-bottom: 10px;"></i>
                 <br>
-                Number of Unique People Who Watched This Video
+                <div style="color: white;">
+                    Number of Unique People Who Watched This Video
+                </div>
                 </span>
             </div>
             <div class="col-xs-2 col-half-offset" id="p5">
                 <span style="color: #F18A65;">
                 <i class="far fa-eye fa-5x"style="padding-bottom: 10px;"></i>
                 <br>
-                Average Percent of Video That Gets Viewed
+                <div style="color: white;">
+                    Average Percent of Video That Gets Viewed
+                </div>
                 </span>
             </div>
         </div>
@@ -63,7 +73,7 @@
     <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
         <div class="container">
             <div class="row" style="border: none; background-color: white; padding-bottom: 2%; padding-top: 2%;">
-                <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
+                <p style="font-size: 1.5em; color: #202b3d;"><b><%= video_name %><b><p>
                 <iframe allow="fullscreen" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
                 <br>
                 <div class="col-xs-2" id="p1">
