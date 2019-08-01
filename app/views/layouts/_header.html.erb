@@ -8,13 +8,13 @@
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-left">
-      <li><%= link_to image_tag("logo_small.png"), root_path, id: "logo" %></li>
+      <li><%= link_to image_tag("flowvideologo.png", width: "10%", height: "auto"), root_path, id: "logo" %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
         <ul class="nav navbar-nav navbar-right">
           <% if !is_admin? %>
-            <li><%= link_to "YOUR VIDEOS",  videos_path %></li>
+            <li class="text-white"><%= link_to "YOUR VIDEOS",  videos_path %></li>
             <li><%= link_to "STATISTICS",   statistics_path %></li>
             <li><%= link_to "PROGRESS",     progress_path %></li>
           <% else is_admin? %> 
