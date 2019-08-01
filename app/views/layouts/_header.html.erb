@@ -1,9 +1,18 @@
-<header class="navbar navbar-fixed-top navbar-inverse" style="background-color: #202b3d; border: none;">
-  <div class="container">
-    <%= link_to image_tag("logo_small.png"), root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
+<nav class="navbar navbar-default" role="navigation" style="  margin-top: 0px;">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>    
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li><%= link_to image_tag("logo_small.png"), root_path, id: "logo" %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
+        <ul class="nav navbar-nav navbar-right">
           <% if !is_admin? %>
             <li style="font-weight: bold; size: 20px;"><%= link_to "YOUR VIDEOS",  videos_path %></li>
             <li><%= link_to "STATISTICS",   statistics_path %></li>
@@ -26,7 +35,7 @@
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
-      </ul>
-    </nav>
+        </ul>
+    </ul>
   </div>
-</header> 
+</nav>
