@@ -12,8 +12,12 @@
 }
 
 /* navbar styling */
-li {
+.collapse ul.navbar-nav>li>a {
+  color: white;
   font-size: 20px;
+}
+.collapse ul.navbar-nav>li>a:hover {
+  color:#F18A65;
 }
 
 /* custom fonts for website */
