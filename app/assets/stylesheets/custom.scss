@@ -299,30 +299,6 @@ input {
 }
 
 /* styling for statistics */
-.box {
-  margin: 0 auto;
-  color: white;
-  padding: 0.3em 0.3em; /* inside div padding */
-  margin-bottom: 6px; /* or whatever */
-  clear: both;
-}
-.rectangularbox {
-  height: 167px;
-  width: 167px;
-}
-.smallbox {
-  height: 167px;
-  width: 167px;
-}
-.longbox {
-  width: 100%;
-  height: 200px;
-}
-/* aligns multiple lines of text in middle of div blocks */
-.vertical_align {
-  display: table-cell;
-  vertical-align: middle;
-}
 .floworange{
   background-color:#F18A65;
 }
