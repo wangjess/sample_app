@@ -11,6 +11,12 @@
   }
 }
 
+/* navbar styling */
+li {
+  font-size: 20px;
+  color: white;
+}
+
 /* custom fonts for website */
 
 @font-face {
@@ -45,7 +51,6 @@
 
 
 /* stack divs vertically on mobile */
-
 @media all and (max-width:800px) // 800px for tablets and phones.
 {
     .each_row_thing
@@ -82,6 +87,8 @@ body {
   padding-top: 60px;
   font-family: 'Gotham-Book';
   background-color:#202b3d;
+  margin: 0;
+  padding: 0;
 }
 
 section {

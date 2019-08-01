@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation" style="  margin-top: 0px;">
+<nav class="navbar navbar-default" role="navigation" style="background-color:#202b3d; border: none;">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
@@ -7,14 +7,14 @@
     </button>    
   </div>
   <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-        <li><%= link_to image_tag("logo_small.png"), root_path, id: "logo" %></li>
-    </ul>
     <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to image_tag("logo_small.png"), root_path, id: "logo" %></li>
+      </ul>
         <% if logged_in? %>
         <ul class="nav navbar-nav navbar-right">
           <% if !is_admin? %>
-            <li style="font-weight: bold; size: 20px;"><%= link_to "YOUR VIDEOS",  videos_path %></li>
+            <li><%= link_to "YOUR VIDEOS",  videos_path %></li>
             <li><%= link_to "STATISTICS",   statistics_path %></li>
             <li><%= link_to "PROGRESS",     progress_path %></li>
           <% else is_admin? %> 
@@ -26,7 +26,8 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>              <li class="divider"></li>
+                <li><%= link_to "Settings", edit_user_path(current_user) %></li>              
+                <li class="divider"></li>
                 <li>
                   <%= link_to "Log out", logout_path, method: :delete %>
                 </li>
