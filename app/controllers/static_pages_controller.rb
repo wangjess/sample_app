@@ -116,6 +116,6 @@ class StaticPagesController < ApplicationController
 
   def progress
     flash[:info] = "Current under construction! Please email leigh@flowvideo.com if you have project status questions."
-    redirect_to root_url
+    redirect_to videos_url
   end 
 end
