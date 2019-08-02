@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation" style="background-color: #202b3d; border: none;">
+<nav class="navbar navbar-default" role="navigation" style="background-color: pink; border: none; height: 100px;">
 
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,16 +8,18 @@
     </button>    
   </div>
 
-  <div class="navbar-collapse collapse" style="color: white; vertical-align: middle;">
+  <div class="navbar-collapse collapse">
+
     <ul class="nav navbar-nav navbar-left" style="padding-left: 3%;">
       <span class="helper"></span>
-      <%= link_to image_tag("ps2pdf.png"), root_path, id: "logo" %>
+      <%= link_to image_tag("flowvideologo.png", width: "15%", height: "auto"), root_path, id: "logo" %>
     </ul>
-    <ul class="nav navbar-nav navbar-right" style="padding-left: 3%; padding-right: 3%; vertical-align: middle; display: flex; justify-content: flex-end">
+
+    <ul class="nav navbar-nav navbar-right" style="padding-left: 3%; padding-right: 3%;">
         <% if logged_in? %>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" style="">
           <% if !is_admin? %>
-            <li class="text-white"><%= link_to "YOUR VIDEOS",  videos_path %></li>
+            <li><%= link_to "YOUR VIDEOS",  videos_path %></li>
             <li><%= link_to "STATISTICS",   statistics_path %></li>
             <li><%= link_to "PROGRESS",     progress_path %></li>
           <% else is_admin? %> 
@@ -41,6 +43,7 @@
         <% end %>
         </ul>
     </ul>
+
   </div>
 
 </nav>
