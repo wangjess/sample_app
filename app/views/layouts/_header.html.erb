@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation" style="background-color: pink; border: none;">
+<nav class="navbar navbar-default" role="navigation" style="background-color: #202b3d; border: none;">
 
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,12 +8,12 @@
     </button>    
   </div>
 
-  <div class="navbar-collapse collapse" style="color: white;">
+  <div class="navbar-collapse collapse" style="color: white; vertical-align: middle;">
     <ul class="nav navbar-nav navbar-left" style="padding-left: 3%;">
       <span class="helper"></span>
       <%= link_to image_tag("ps2pdf.png"), root_path, id: "logo" %>
     </ul>
-    <ul class="nav navbar-nav navbar-right" style="padding-left: 3%; padding-right: 3%;">
+    <ul class="nav navbar-nav navbar-right" style="padding-left: 3%; padding-right: 3%; vertical-align: middle; display: flex; justify-content: flex-end">
         <% if logged_in? %>
         <ul class="nav navbar-nav navbar-right">
           <% if !is_admin? %>
