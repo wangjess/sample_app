@@ -2,27 +2,13 @@
 @import "bootstrap";
 @import "font-awesome";
 
-/* navbar responsiveness*/
-@media (min-width: 768px) {
-  .navbar-nav.navbar-center {
-    position: absolute;
-    left: 50%;
-    transform: translatex(-50%);
-  }
-}
-
 /* navbar styling */
-.collapse ul.navbar-nav>li>a {
+.navbar ul>li>a {
   color: white;
   font-size: 20px;
 }
-.collapse ul.navbar-nav>li>a:hover {
+.navbar ul>li>a:hover {
   color:#F18A65;
-}
-.helper {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
 }
 
 /* custom fonts for website */
