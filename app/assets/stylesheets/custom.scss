@@ -7,11 +7,12 @@
   color: white;
   font-size: 20px;
 }
+.navbar ul>a:hover {
+  color:#F18A65;
+}
 .navbar ul>li>a:hover {
   color:#F18A65;
 }
-
-#content {margin-top: 50px;}
 
 /* custom fonts for website */
 @font-face {

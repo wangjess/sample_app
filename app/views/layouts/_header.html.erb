@@ -11,11 +11,11 @@
           <% else is_admin? %> 
             <li><%= link_to "USERS", users_path %></li>
           <% end %>
-            <li class="dropdown">
+            <li class="dropdown" style="background-color: #202b3d;">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 ACCOUNT <b class="caret"></b>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu"  style="background-color: #202b3d;">
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>              <li class="divider"></li>
                 <li>
