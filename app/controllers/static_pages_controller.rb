@@ -56,6 +56,9 @@ class StaticPagesController < ApplicationController
       @hash["visitors"] = @hash["visitors"].to_i
       @each_video_stats.push(@hash)
     end
+
+    puts "HASH:"
+    puts @each_video_stats
   end
 
   def statistics
