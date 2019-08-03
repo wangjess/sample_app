@@ -2,8 +2,19 @@
 @import "bootstrap";
 @import "font-awesome";
 
-/* custom fonts for website */
+/* navbar styling */
+.navbar ul>li>a {
+  color: white;
+  font-size: 20px;
+}
+.navbar ul>a:hover {
+  color:#F18A65;
+}
+.navbar ul>li>a:hover {
+  color:#F18A65;
+}
 
+/* custom fonts for website */
 @font-face {
   font-family: 'Gotham-Bold';
   src: url('/Gotham-Bold.ttf') format('truetype');
@@ -25,7 +36,6 @@
 /* background image */
 
 .splash {
-  background-image: url("/data.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -36,7 +46,6 @@
 
 
 /* stack divs vertically on mobile */
-
 @media all and (max-width:800px) // 800px for tablets and phones.
 {
     .each_row_thing
@@ -72,7 +81,9 @@ $gray-medium-light: #eaeaea;
 body {
   padding-top: 60px;
   font-family: 'Gotham-Book';
-  background-color:#e6e6e6;
+  background-color:#202b3d;
+  margin: 0;
+  padding: 0;
 }
 
 section {
@@ -265,56 +276,29 @@ input {
   float: left;
 }
 
+/* START VIDEOS */
+.col-xs-2{
+  color:#FFF;
+}
+.col-half-offset{
+  margin-left:4.166666667%
+}
+/* END VIDEOS */
+
 /* your videos page percent component size */
 .video-percent-div {
   width: 150;
 }
 
 /* styling for statistics */
-.box {
-  margin: 0 auto;
-  color: white;
-  padding: 0.3em 0.3em; /* inside div padding */
-  margin-bottom: 6px; /* or whatever */
-  clear: both;
+.floworange{
+  background-color:#F18A65;
 }
-.rectangularbox {
-  height: 167px;
-  width: 167px;
+.flowmiddle {
+  background-color:#F4A386;
 }
-.smallbox {
-  height: 167px;
-  width: 167px;
-}
-.longbox {
-  width: 100%;
-  height: 200px;
-}
-/* aligns multiple lines of text in middle of div blocks */
-.vertical_align {
-  display: table-cell;
-  vertical-align: middle;
-}
-.green{
-  background-color:green;
-}
-.blue{
-  background-color:blue;
-}
-.orange{
-  background-color:#FF8C00;
-}
-.red {
-  background-color:red;
-}
-.alignleft {
-	float: left;
-}
-.alignright {
-	float: right;
-}
-.shadow {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.flowtop {
+  background-color:#FBE3DA;
 }
 
 /* each_row_thing */

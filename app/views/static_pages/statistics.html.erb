@@ -6,9 +6,12 @@
         <script src="https://kit.fontawesome.com/f85f1b6612.js"></script>
     </head>
     <body>
-        <h1 style="color: black;"> Statistics Dashboard <h1>
-        <h2>
-            This dashboard shows the total culmination of all your video statistics over time! (Whether 1 video or more!)
+        <br>
+        <br>
+        <h1 style="color: #F18A65;"> Total Statistics Dashboard <h1>
+        <h2 style="color: white;">
+            This dashboard shows the total of all your videos' statistics to date!
+            <br>
             <br>
             Other data can be integrated upon client request.
         <h2>
@@ -16,38 +19,38 @@
         <%-# Icon Legend -%>
         <%-# Wistia Statistics -%>
         <div class="box shadow" style="color: black; background-color: white;">
-            <p style="font-size: 1.5em; color: black;"><b>Wistia Statistics <b><p>
+            <p style="font-size: 1.5em; color: #202b3d;"><b>Wistia Statistics <b><p>
             <div class="row">
                 <div class="horizontal-align col-xs-3">
-                    <span style="color: blue;">
+                    <span style="color: #F18A65;">
                         <i class="far fa-play-circle fa-5x" style="padding-bottom: 10px;"></i>
                         <br>
-                        <p>Times Played</p>
+                        <p style="color: #202b3d;">Times Played</p>
                     </span>
                     <%= "&nbsp;#{@statistics["play_count"]}".html_safe %> plays
                 </div>
                 <div class="horizontal-align col-xs-3">
-                    <span style="color: orange;">
+                    <span style="color: #F18A65;">
                         <i class="far fa-clock fa-5x" style="padding-bottom: 10px;"></i>
                         <br>
-                        <p>Total Hours Watched</p>
+                        <p style="color: #202b3d;">Total Hours Watched</p>
                     </span>
                     <% formatted = '%.2f' % @statistics["hours_watched"] %>
                     <%= "&nbsp;#{formatted}".html_safe %> hours
                 </div>
                 <div class="horizontal-align col-xs-3">
-                    <span style="color: green;">
+                    <span style="color: #F18A65;">
                         <i class="fas fa-video fa-5x" style="padding-bottom: 10px;"></i>
                         <br>
-                        <p>Total Number of Videos</p>
+                        <p style="color: #202b3d;">Total Number of Videos</p>
                     </span>
                     <%= "&nbsp;#{@statistics["number_of_videos"]}".html_safe %> videos
                 </div>
                 <div class="horizontal-align col-xs-3" style="padding-bottom: 10px;">
-                    <span style="color: red;">
+                    <span style="color: #F18A65;">
                         <i class="fas fa-city fa-5x" style="padding-bottom: 10px;"></i>
                         <br>
-                        <p>Top 3 Cities of Viewers</p>
+                        <p style="color: #202b3d;">Top 3 Cities of Viewers</p>
                     </span>
                     1. <%= @topThree[0] %>
                     <br>

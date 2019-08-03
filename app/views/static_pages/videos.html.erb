@@ -6,44 +6,64 @@
         <script src="https://kit.fontawesome.com/f85f1b6612.js"></script>
     </head>
     <body>
-    <h1 style="color: black;"> Your Videos Dashboard <h1>
-    <h2>
+    <br>
+    <br>
+    <h1 style="color: #F18A65;"> Your Videos Dashboard <h1>
+    <h2 style="color: white;">
         All of your videos and their respective Wistia statistics are in this dashboard.
         <br>
-        On the left hand side is the video, followed by its statistics!
         <br>
         Here's an icon guide to understand your statistics. Happy viewing!
     <h2>
+    <br>
+    <br>
 
     <%-# Icon Legend -%>
-    <div style="color:black;">
-        <div class="row">
-            <div class="horizontal-align col-xs-2">
-                <span style="color: blue;">
+    <div class="container">
+        <div class="row" style="border: none;">
+            <div class="col-xs-2" id="p1">
+                <span style="color: #F18A65;">
                 <i class="far fa-play-circle fa-5x" style="padding-bottom: 10px;"></i>
                 <br>
-                Times Played
+                <div style="color: white;">
+                    Times Played
+                </div>
                 </span>
             </div>
-            <div class="horizontal-align col-xs-3">
-                <span style="color: orange;">
-                <i class="far fa-clock fa-5x" style="padding-bottom: 10px;"></i>
-                <br>
-                Total Minutes Watched
-                </span>
-            </div>
-            <div class="horizontal-align col-xs-3">
-                <span style="color: green;">
-                <i class="fas fa-users fa-5x" style="padding-bottom: 10px;"></i>
-                <br>
-                Number of Unique People Who Watched This Video
-                </span>
-            </div>
-            <div class="horizontal-align col-xs-4">
-                <span style="color: red;">
+            <div class="col-xs-2 col-half-offset" id="p2">
+                <span style="color: #F18A65;">
                 <i class="fas fa-percent fa-5x" style="padding-bottom: 10px;"></i>
                 <br>
-                Average Percent of Video That Gets Viewed (From Start to End)
+                <div style="color: white;">
+                    Play Rate
+                </div>
+                </span>
+            </div>
+            <div class="col-xs-2 col-half-offset" id="p3">
+                <span style="color: #F18A65;">
+                <i class="far fa-clock fa-5x" style="padding-bottom: 10px;"></i>
+                <br>
+                <div style="color: white;">
+                    Total Minutes Watched
+                </div>
+                </span>
+            </div>
+            <div class="col-xs-2 col-half-offset" id="p4">
+                <span style="color: #F18A65;">
+                <i class="fas fa-users fa-5x" style="padding-bottom: 10px;"></i>
+                <br>
+                <div style="color: white;">
+                    Number of Unique People Who Loaded This Video
+                </div>
+                </span>
+            </div>
+            <div class="col-xs-2 col-half-offset" id="p5">
+                <span style="color: #F18A65;">
+                <i class="far fa-eye fa-5x"style="padding-bottom: 10px;"></i>
+                <br>
+                <div style="color: white;">
+                    Average Percent of Video That Gets Viewed
+                </div>
                 </span>
             </div>
         </div>
@@ -52,73 +72,70 @@
     <br>
 
     <%-# For Loop That Iterates Through Videos, Embeds Video & Prints Individual Statistics -%>
-    <div class="each_row_thing" style="padding-bottom: 15px;">
-        <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
-            <div class="box shadow" style="padding-bottom: 10px; background-color: white;" >
-                <p style="font-size: 1.5em; color: black;"><b><%= video_name %><b><p>
-                <div style="text-align: center; vertical-align: middle; display: flex; justify-content: center;">
-                    <div class="row">
-                        <div style="float:left;" class="box">
-                            <div class="horizontal-align col-xs-2">
-                                <iframe allow="fullscreen" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
-                            </div>
-                        </div>
-                        <div class="horizontal-align col-xs-2">
-                            <div class="box smallbox vertical_align">
-                                <span style="color: blue;">
-                                    <i class="far fa-play-circle fa-5x"></i>
-                                    <br>
-                                    <br>
-                                </span>
-                                <div style="color: black;">
-                                    <%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %> plays
-                                </div>
-                            </div>
-                        </div>
-                        <div class="horizontal-align col-xs-2">
-                            <div class="box smallbox vertical_align">
-                                <span style="color: orange;">
-                                    <i class="far fa-clock fa-5x"></i>
-                                    <br>
-                                    <br>
-                                </span>
-                                <div style="color: black;">
-                                    <%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %> minutes
-                                </div>
-                            </div>
-                        </div>
-                        <div class="horizontal-align col-xs-2">
-                            <div class="box smallbox vertical_align">
-                                <span style="color: green;">
-                                    <i class="fas fa-users fa-5x"></i>
-                                    <br>
-                                    <br>
-                                </span>
-                                <% formatted = each_video_stats["visitors"] %>
-                                <div style="color: black;">
-                                    <%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %> people
-                                </div>
-                            </div>
-                        </div>
-                        <div class="horizontal-align col-xs-2">
-                            <div class="box smallbox vertical_align">
-                                <span style="color: red;">
-                                    <i class="fas fa-percent fa-5x"></i>
-                                    <br>
-                                    <br>
-                                </span>
-                                <% video_percent = '%.2f' % each_video_stats["engagement"] %>
-                                <div style="color: black;">
-                                    <%= "&nbsp;#{video_percent}".html_safe %>
-                                </div>
-                            </div>
-                        </div>
+    <% @video_iframe_urls.zip(@video_names, @each_video_stats).each do |video_iframe_url, video_name, each_video_stats| %>
+        <div class="container">
+            <div class="row" style="border: none; background-color: white; padding-bottom: 2%; padding-top: 2%;">
+                <p style="font-size: 1.5em; color: #202b3d;"><b><%= video_name %><b><p>
+                <iframe allow="fullscreen" src="<%= video_iframe_url.to_s.html_safe %>"></iframe>
+                <br>
+                <div class="col-xs-2" id="p1">
+                    <span style="color: #F18A65;">
+                        <i class="far fa-play-circle fa-5x"></i>
+                        <br>
+                        <br>
+                    </span>
+                    <div style="color: #202b3d;">
+                        <%= "&nbsp;#{each_video_stats["play_count"]}".html_safe %> plays
+                    </div>
+                </div>
+                <div class="col-xs-2 col-half-offset" id="p2">
+                    <span style="color: #F18A65;">
+                        <i class="fas fa-percent fa-5x"></i>
+                        <br>
+                        <br>
+                    </span>
+                    <% play_rate = '%.2f' % each_video_stats["play_rate"] %>
+                    <div style="color: #202b3d;">
+                        <%= "&nbsp;#{play_rate}".html_safe %>% play rate
+                    </div>
+                </div>
+                <div class="col-xs-2 col-half-offset" id="p3">
+                    <span style="color: #F18A65;">
+                        <i class="far fa-clock fa-5x"></i>
+                        <br>
+                        <br>
+                    </span>
+                    <div style="color: #202b3d;">
+                        <%= "&nbsp;#{each_video_stats["hours_watched"]}".html_safe %> minutes
+                    </div>
+                </div>
+                <div class="col-xs-2 col-half-offset" id="p4">
+                    <span style="color: #F18A65;">
+                        <i class="fas fa-users fa-5x"></i>
+                        <br>
+                        <br>
+                    </span>
+                    <% formatted = each_video_stats["visitors"] %>
+                    <div style="color: #202b3d;">
+                        <%= "&nbsp;#{each_video_stats["visitors"]}".html_safe %> people
+                    </div>
+                </div>
+                <div class="col-xs-2 col-half-offset" id="p5">
+                    <span style="color: #F18A65;">
+                        <i class="far fa-eye fa-5x"></i>
+                        <br>
+                        <br>
+                    </span>
+                    <% video_percent = '%.2f' % each_video_stats["engagement"] %>
+                    <div style="color: #202b3d;">
+                        <%= "&nbsp;#{video_percent}".html_safe %>
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
-        <% end %>
-    </div>
+        </div>
+        <br>
+        <br>
+    <% end %>
+    
     </body>
 </html>
