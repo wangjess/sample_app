@@ -9,10 +9,16 @@
     "react": "^16.8.6",
     "react-circular-progressbar": "^2.0.1",
     "react-dom": "^16.8.6",
-    "react_ujs": "^2.5.0"
+    "react_ujs": "^2.5.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "typescript": "^3.5.3",
     "webpack-dev-server": "^3.7.2"
-  }
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
